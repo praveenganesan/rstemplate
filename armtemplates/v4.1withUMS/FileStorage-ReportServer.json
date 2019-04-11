@@ -93,7 +93,11 @@
             "web"
           ],
           "name": "appsettings",
-          "properties": "[variables('ApplicationSettings')]",
+          "properties": {
+            "IsAzureApplication": "true",
+            "log4net.Config": "logs\\log4net.config",
+            "StorageType": "FileStorage"
+          },
           "tags": {
             "displayName": "FileAppSetting"
           },
