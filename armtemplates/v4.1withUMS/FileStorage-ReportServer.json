@@ -62,6 +62,13 @@
       "defaultValue": "FileStorage"
     }
   },
+  "variables": {
+	"ApplicationSettings": {
+            "IsAzureApplication": "true",
+            "log4net.Config": "logs\\log4net.config",
+            "StorageType": "FileStorage"
+          }
+  },
   "resources": [
     {
       "name": "[parameters('AppServiceName')]",
@@ -86,7 +93,7 @@
             "web"
           ],
           "name": "appsettings",
-          "properties": "[parameters('ApplicationSettings')]",
+          "properties": "[variables('ApplicationSettings')]",
           "tags": {
             "displayName": "FileAppSetting"
           },
