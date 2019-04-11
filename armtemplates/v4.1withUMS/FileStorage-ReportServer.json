@@ -93,7 +93,7 @@
             "IsAzureApplication": "true",
             "log4net.Config": "logs\\log4net.config",
             "StorageType": "FileStorage",
-			"UmsUrl": "[if(equals(parameters('AppServiceType'),'RS'), parameters('UmsUrl'), json('null'))]"
+			"UmsUrl": "[if(equals(parameters('AppServiceType'),'RS'), parameters('UmsUrl'), null)]"
           },
           "tags": {
             "displayName": "FileAppSetting"
