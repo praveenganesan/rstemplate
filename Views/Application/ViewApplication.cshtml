@@ -54,15 +54,21 @@
     <script type="text/x-jsrender" id="user-email-template">
         <span class="grid-content" title="{{:Email}}" data-toggle="tooltip">{{:Email}}</span>
     </script>
+    <script type="text/x-jsrender" id="user-status-template">
+        <span class="grid-content" title="{{:Status}}" data-toggle="tooltip">{{:Status}}</span>
+    </script>
     <script type="text/x-jsrender" id="username-header">
         <div class="item-name">[[[Name]]]</div>
     </script>
     <script type="text/x-jsrender" id="email-header">
         <div class="item-header">[[[Email Address]]]</div>
     </script>
-        <script type="text/x-jsrender" id="actionsheader">
-            <div class="item-header">[[[Actions]]]</div>
-        </script>
+    <script type="text/x-jsrender" id="status-header">
+        <div class="item-header">[[[Status]]]</div>
+    </script>
+    <script type="text/x-jsrender" id="actionsheader">
+        <div class="item-header">[[[Actions]]]</div>
+    </script>
     <script type="text/x-jsrender" id="actions-header-for-group">
         <div class="item-header">[[[Actions]]]</div>
     </script>
@@ -86,11 +92,11 @@
         <label for="row-check{{:UserId}}"> </label>
     </script>
 
-     <script type="text/x-jsrender" id="group-checkbox-row-template">
+    <script type="text/x-jsrender" id="group-checkbox-row-template">
         <input type="checkbox" class="checkbox-row material-checkbox" data-checked-id="{{:GroupId}}" id="group-row-check{{:GroupId}}" />
         <input name="group-row-check{{:GroupId}}" type="hidden" value="false">
         <label for="group-row-check{{:GroupId}}"> </label>
-     </script>
+    </script>
     
     <script type="text/x-jsrender" id="admin-checkbox-row-template">
         <input type="checkbox" class="checkbox-row material-checkbox" data-checked-id="{{:UserId}}" id="admin-row-check{{:UserId}}" />
@@ -132,9 +138,9 @@
         </span>
     </script>
     <script type="text/x-jsrender" id="users-count-template">
-    <span class="grid-content" title="{{:UsersCount}}" data-toggle="tooltip">
-        {{:UsersCount}}
-    </span>
+        <span class="grid-content" title="{{:UsersCount}}" data-toggle="tooltip">
+            {{:UsersCount}}
+        </span>
     </script>
 }
 

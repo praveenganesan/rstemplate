@@ -19,7 +19,8 @@ CREATE TABLE [SfUMS_User](
 	[UserTypeId] [int] NOT NULL DEFAULT 0,
 	[IsActivated] [bit] NOT NULL,
 	[IsActive] [bit] NOT NULL,
-	[IsDeleted] [bit] NOT NULL)
+	[IsDeleted] [bit] NOT NULL,
+	[DomainId] [nvarchar](4000) NULL)
 ;
 
 CREATE TABLE [SfUMS_Group](
@@ -28,7 +29,8 @@ CREATE TABLE [SfUMS_Group](
 	[Description] [nvarchar](1026) NULL,
 	[Color] [nvarchar](255) NOT NULL DEFAULT 'White',
 	[ModifiedDate] [datetime] NOT NULL,
-	[IsActive] [bit] NOT NULL)
+	[IsActive] [bit] NOT NULL,
+	[DomainId] [nvarchar](4000) NULL)
 ;
 
 CREATE TABLE [SfUMS_UserGroup](
@@ -402,6 +404,9 @@ CREATE TABLE [SfUMS_TableRelation](
 ;
 
 INSERT into [SfUMS_ApplicationType](Type,Id) values(N'Dashboard Server',2)
+;
+
+INSERT into [SfUMS_ApplicationType](Type,Id) values(N'Report Server',3)
 ;
 
 CREATE INDEX [IX_ADGroup_GroupId] ON [SfUMS_ADGroup] ([GroupId])

@@ -19,7 +19,8 @@ CREATE TABLE "SfUMS_User"(
 	"UserTypeId" int DEFAULT 0 NOT NULL,
 	"IsActivated" NUMBER(1) NOT NULL,
 	"IsActive" NUMBER(1) NOT NULL,
-	"IsDeleted" NUMBER(1) NOT NULL)
+	"IsDeleted" NUMBER(1) NOT NULL,
+	"DomainId" VARCHAR2(4000) NULL)
 ;
 
 CREATE SEQUENCE "SfUMS_User_seq"
@@ -34,7 +35,8 @@ CREATE TABLE "SfUMS_Group"(
 	"Description" NVARCHAR2(1026) NULL,
 	"Color" NVARCHAR2(255) DEFAULT 'White' NOT NULL,
 	"ModifiedDate" DATE NOT NULL,
-	"IsActive" NUMBER(1) NOT NULL)
+	"IsActive" NUMBER(1) NOT NULL,
+	"DomainId" VARCHAR2(4000) NULL)
 ;
 
 CREATE SEQUENCE "SfUMS_Group_seq"
@@ -556,6 +558,9 @@ NOCACHE
 NOCYCLE;
 
 INSERT into "SfUMS_ApplicationType" ("Id","Type") values(2,'Dashboard Server')
+;
+
+INSERT into "SfUMS_ApplicationType" ("Id","Type") values(3,'Report Server')
 ;
 
 CREATE INDEX "IX_ADGroup_GroupId" ON "SfUMS_ADGroup" ("GroupId")

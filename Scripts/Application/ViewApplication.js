@@ -422,7 +422,14 @@ function getAppUsers() {
                  headerTemplateID: "#email-header",
                  type: "string",
                  width: 155
-             },
+            },
+            {
+                field: "Status",
+                templateID: "#user-status-template",
+                headerTemplateID: "#status-header",
+                type: "string",
+                width: 50
+            },
             
              {                
                  visible: ($("#access-to-all-users").val() == false),

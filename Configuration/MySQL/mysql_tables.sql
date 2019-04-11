@@ -20,6 +20,7 @@ CREATE TABLE {database_name}.SfUMS_User(
 	IsActivated tinyint(1) NOT NULL,
 	IsActive tinyint(1) NOT NULL,
 	IsDeleted tinyint(1) NOT NULL,
+	DomainId varchar(4000) NULL,
 	PRIMARY KEY (Id))
 ;
 
@@ -30,6 +31,7 @@ CREATE TABLE {database_name}.SfUMS_Group(
 	Color varchar(255) NOT NULL DEFAULT 'White',
 	ModifiedDate datetime NOT NULL,
 	IsActive tinyint(1) NOT NULL,
+	DomainId varchar(4000) NULL,
 	PRIMARY KEY (Id))
 ;
 
@@ -432,6 +434,9 @@ CREATE TABLE {database_name}.SfUMS_TableRelation(
 ;
 
 INSERT into {database_name}.SfUMS_ApplicationType(Type,Id) values('Dashboard Server',2)
+;
+
+INSERT into {database_name}.SfUMS_ApplicationType(Type,Id) values('Report Server',3)
 ;
 
 CREATE INDEX IX_ADGroup_GroupId ON {database_name}.SfUMS_ADGroup (GroupId)

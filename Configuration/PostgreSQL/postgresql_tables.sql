@@ -19,7 +19,8 @@ CREATE TABLE SfUMS_User(
 	UserTypeId int NOT NULL DEFAULT 0,
 	IsActivated smallint NOT NULL,
 	IsActive smallint NOT NULL,
-	IsDeleted smallint NOT NULL)
+	IsDeleted smallint NOT NULL,
+	DomainId varchar(4000) NULL)
 ;
 
 CREATE TABLE SfUMS_Group(
@@ -28,7 +29,8 @@ CREATE TABLE SfUMS_Group(
 	Description varchar(1026) NULL,
 	Color varchar(255) NOT NULL DEFAULT 'White',
 	ModifiedDate timestamp NOT NULL,
-	IsActive smallint NOT NULL)
+	IsActive smallint NOT NULL,
+	DomainId varchar(4000) NULL)
 ;
 
 CREATE TABLE SfUMS_UserGroup(
@@ -403,6 +405,9 @@ CREATE TABLE SfUMS_TableRelation(
 ;
 
 INSERT into SfUMS_ApplicationType(Type,Id) values(N'Dashboard Server',2)
+;
+
+INSERT into SfUMS_ApplicationType(Type,Id) values(N'Report Server',3)
 ;
 
 CREATE INDEX IX_ADGroup_GroupId ON SfUMS_ADGroup (GroupId)
