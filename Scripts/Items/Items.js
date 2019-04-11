@@ -810,6 +810,11 @@ function fnActionBegin(args) {
     }
 }
 
+function fnActionFailure(args) {
+    setTimeout(function () {
+        $("#item-grid-container").ejWaitingPopup("show");}, 500);
+}
+
 function fnActionComplete(args) {
     $("[data-toggle='tooltip']").tooltip();
     var gridObj = $("#items").data("ejGrid");
@@ -1405,7 +1410,7 @@ $(document).on("click", ".web-designer", function (e) {
     $("#report-name").val($(this).attr("data-name"));
     $("#category-name").val($(this).attr("data-category-name"));
     $("#edit-value").val(true);
-    var url = reportDesignerUrl + "/" + $(this).attr("data-category-name") + "/" + $(this).attr("data-name") + "?reportCompatibility=true";
+    var url = reportDesignerUrl + "/" + $(this).attr("data-category-name") + "/" + $(this).attr("data-name");
     $("#edit-report-tested").val(true);
     $("#edit-report-form").attr("action", url);
     $("#edit-report-form").submit();

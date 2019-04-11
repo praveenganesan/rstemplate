@@ -170,9 +170,12 @@
                         key: "displayCategory",
                         value: $scope.itemRequestType
                     });
+                    $.xhrPool.abortAll();
+                    ajaxService.cancelRequest();
                     gridObj.refreshContent();
                 }
                 else {
+                    $.xhrPool.abortAll();
                     $scope.refreshCategorySection();
                 }
                 $("#back-icon").css("display", "none");

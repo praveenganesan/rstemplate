@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+@using Newtonsoft.Json
 @{
     Layout = null;
     var reportPath = string.Empty;
@@ -28,6 +29,14 @@
             Url.Content("~/Content/Images/Application/" + GlobalAppSettings.SystemSettings.MainScreenLogo);
     var defaultAppLogo = Url.Content("~/Content/Images/Application/Main_Logo.png");
     var language = Context.GetPrincipalAppLanguageForRequest().GetCultureInfo();
+    var tourCookie = Request.Cookies["syncfusion.dashboards.designer.tour"];
+    var tourObj = new TourCookie();
+    if (tourCookie != null)
+    {
+        tourObj = JsonConvert.DeserializeObject<TourCookie>(JsonConvert.DeserializeObject(tourCookie.Value).ToString());
+    }
+    var showDatasourceTour = (ViewData["reportName"] != null && ViewData["categoryName"] != null) ? false : true;
+    var showTour = !DeviceDetection.IsMobile && ((tourCookie == null || (tourObj.TourCompleted == "false" && tourObj.TourSkipped == "false")) || showDatasourceTour);
 }
 
 <html lang="en" style="height:100%;width:100%">
@@ -46,6 +55,13 @@
     @Styles.Render("~/styles/report-designer")
     @Styles.Render("~/styles/designer")
     @Scripts.Render("~/scripts/report-designer")
+
+    @if (showTour)
+    {
+        @Styles.Render("~/styles/report-designer-tour")
+        Html.RenderPartial("~/Views/Shared/_DesignerTour.cshtml");
+        @Scripts.Render("~/scripts/report-designer-tour")
+    }
 
     <script src="~/Scripts/Localization/ReportDesigner/ej.localetexts.@string.Concat(language,".js")"></script>
 
@@ -88,11 +104,13 @@
         }
     </style>
 
-<script>
+    <script>
     var getUserNotificationsPartialViewResultUrl = "@Url.Action("GetUserNotificationsPartialViewResult", "notification")";
     var controlId = 'container';
     var isEditReport = false;
     var webApiQueryDialog = null;
+    var showDatasourceTour = "@showDatasourceTour";
+    var showTour = "@showTour";
 
     var categoryName = "@categoryName";
     var reportName = "@reportName";
@@ -145,6 +163,9 @@
                     if (data) {
                         $("body").ejWaitingPopup("hide");
                         renderDesigner();
+                        if (showTour.toLowerCase() == "true") {
+                            startTour();
+                        }
                     }
                     else {
                         $("body").ejWaitingPopup("hide");
@@ -153,6 +174,9 @@
                         parent.messageBox("su-report", "[[[Edit Report]]]", "[[[This report is not supported in our Web Report Designer. If you continue to edit the report with Web Report Designer then it will ignore the unsupported report items in report loading. Do you want to continue with Web Report Designer ?]]]", "error", function () {
                             parent.onCloseMessageBox();
                             renderDesigner();
+                            if (showTour.toLowerCase() == "true") {
+                                startTour();
+                            }
                             $("#messageBox .message-content").css("margin-top", "");
                         }, function () {
                             parent.onCloseMessageBox();
@@ -168,6 +192,9 @@
         }
         else if ((isEdit === "true" && isCompatible === "true") || isEdit === "false") {
             renderDesigner();
+            if (showTour.toLowerCase() == "true") {
+                startTour();
+            }
         }
 
         $("#notification-icon").click(function (e) {
@@ -489,7 +516,7 @@
 
     function renderToolbar(args) {
         if ($(args.target).hasClass('e-rptdesigner-toolbarcontainer')) {
-            var designer = $('#' + controlId).data('ejReportDesigner');
+        var designer = $('#' + controlId).data('ejReportDesigner');
 
         var $statustoolBar = ej.buildTag('ul.e-reportdesigner-toolbarul', '', { 'float': 'right' }, {});
         var fileLbl = ej.buildTag('div', '', { 'display': 'block', 'padding': '8px 0px' }, { 'id': controlId + '_file_div' });
@@ -505,10 +532,10 @@
         $statustoolBar.append(fileLbl);
         $(args.target).append($statustoolBar);
 
-        }
+    }
     }
 
-</script>
+    </script>
 </head>
 <body style="overflow: hidden; position: static; margin: 0; padding: 0; height: 100%; width: 100%">
     <div id="designer-header">

@@ -1,4 +1,4 @@
-﻿debugger;
+﻿
 $(document).ready(function () {
         if (parameterObj.length == 0) {
             url = recurrenceType;

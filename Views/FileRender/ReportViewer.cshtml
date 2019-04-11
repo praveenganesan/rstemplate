@@ -26,6 +26,7 @@
         var updateViewUrl = "@Url.Action("UpdateView", "ReportViews")";
         var getSavedViewUrl = "@Url.Action("GetViews", "ReportViews")";
         var filterQueryUrl = "@Url.Action("GetFilterQuery", "FileRender")";
+        var reportDesignerUrl = "@Url.Action("ReportDesigner", "Reports")";
 
         var itemViewShareIframeUrl = "@Url.Action("shareItemView", "items")";
         var publicReportAuthentication = "@HttpContext.Current.Request.IsAuthenticated";
@@ -137,7 +138,7 @@
                             <a href="javascript:void(0)" class="su su-filter server-item-view"></a>
                         </li>
                     }
-                    
+
                 </ul>
             </div>
         </nav>
@@ -172,8 +173,18 @@
                 <img id="commentImage_popup_image" src="" style="width: 100%;">
             </div>
         </div>
-    </div>  
+    </div>
     @Html.Partial("../Items/_GetLink")
+
+    @if (ViewBag.CanWrite)
+    {
+        <form action="@Url.Action("ReportDesigner", "Reports")" id="edit-report-form" method="POST" target="_blank">
+            <input id="report-name" name="reportName" type="hidden" value="">
+            <input id="category-name" name="categoryName" type="hidden" value="">
+            <input id="edit-value" name="isEdit" type="hidden" value="">
+            <input id="edit-report-tested" name="isReportTested" type="hidden" value="">
+        </form>
+    }
 </body>
 </html>
 <script type="text/javascript">
@@ -215,6 +226,7 @@
     var item_Id = "@ViewBag.ItemId.Split('/')[0]";
     var enableComment = '@enableComment';
     var isReportCommented = '@ViewBag.IsReportCommented';
+    var canEdit = '@ViewBag.CanWrite';
 
     var pageurl = "@HttpContext.Current.Request.Url.LocalPath";
     var baseUrl = "@GlobalAppSettings.SystemSettings.BaseUrl";
@@ -250,6 +262,31 @@
                 "",
                 {},
                 { 'id': 'sync_report_viewer_toolbar_link' });
+
+        var $liedit = ej.buildTag("li.e-reportviewer-toolbarli e-tooltxt",
+            "",
+            { 'display': 'inline-block', },
+            { 'id': 'sync_report_viewer_toolbar_edit', 'title': '[[[Edit]]]' });
+
+        var $spanedit = ej.buildTag("span.su-edit e-reportviewer-icon",
+            "",
+            {},
+            { 'id': 'sync_report_viewer_toolbar_edit' });
+
+        if (canEdit.toString().toLowerCase() == "true") {
+            $divouter.append($liedit);
+            $liedit.append($spanedit);
+            $liedit.hover(function () {
+                $liedit.addClass("e-hover");
+            },
+                function () {
+                    $liedit.removeClass("e-hover");
+                });
+
+            $liedit.click(function (e) {
+                editReport();
+            });
+        }
 
 
         if ("@enableComment" == "true") {
@@ -565,4 +602,15 @@
             }
         }
     }
+
+    function editReport() {
+        $("#report-name").val('@ViewBag.ItemName');
+        $("#category-name").val('@ViewBag.CategoryName');
+        $("#edit-value").val(true);
+        var url = reportDesignerUrl + "/" + '@ViewBag.CategoryName' + "/" + '@ViewBag.ItemName';
+        $("#edit-report-tested").val(true);
+        $("#edit-report-form").attr("action", url);
+        $("#edit-report-form").submit();
+    }
+
 </script>
