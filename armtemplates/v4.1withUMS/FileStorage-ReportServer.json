@@ -89,7 +89,8 @@
           "properties": {
             "IsAzureApplication": "true",
             "log4net.Config": "logs\\log4net.config",
-            "StorageType": "FileStorage"
+            "StorageType": "FileStorage",
+			"UmsUrl": "[if(equals('a', 'b'), 'yes', 'no')]"
           },
           "tags": {
             "displayName": "FileAppSetting"
