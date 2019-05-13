@@ -20,7 +20,11 @@ $(document).ready(function () {
     });
 
     $.validator.addMethod("isValidEmail", function (value, element) {
-        return IsEmail(value);
+        if (value.trim() == "") {
+            return true;
+        } else {
+            return IsEmail(value);
+        }
     }, "[[[Please enter a valid email address.]]]");
 
     $.validator.addMethod("isValidName", function (value, element) {
@@ -48,7 +52,6 @@ $(document).ready(function () {
         onfocusout: function (element) { $(element).valid(); $("#success-message").html(""); },
           rules: {
             "user-email": {
-                isRequired: true,
                 isValidName: true,
                 isValidEmail: true
             },

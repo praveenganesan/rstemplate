@@ -125,7 +125,7 @@ function getAppGroups() {
                  width: (window.innerWidth > 1024) ? 40 : 80
              },
              {
-                 visible: ($("#access-to-all-users").val() == false),
+                 visible: true,
                  template: true,
                  allowSorting: false,
                  templateID: "#groups-command-template",

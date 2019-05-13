@@ -20,7 +20,14 @@
     <div class="container">
         <div class="inner-container">
             <div class="login-header">
-                <img src="~/Content/Images/Application/Login_Logo.png" />
+                @if (GlobalAppSettings.SystemSettings.StorageType == (int)StorageType.AzureBlob)
+                {
+                    <img src="@GlobalAppSettings.AzureBlob.AzureBlobStorageUri/@GlobalAppSettings.AzureBlob.AzureBlobStorageContainerName/@GlobalAppSettings.GetStorageMode()/Content/Images/Application/@GlobalAppSettings.SystemSettings.LoginLogo" onerror="if (this.src != '/Content/Images/Application/Login_Logo.png') this.src = '/Content/Images/Application/Login_Logo.png';" />
+                }
+                else
+                {
+                    <img src="@Url.Content("~/Content/Images/Application/" + GlobalAppSettings.SystemSettings.LoginLogo)" onerror="if (this.src != '@Url.Content("~/Content/Images/Application/Login_Logo.png")') this.src = '@Url.Content("~/Content/Images/Application/Login_Logo.png")';" />
+                }
                 <div class="title">
                     @welcomeNote
                 </div>

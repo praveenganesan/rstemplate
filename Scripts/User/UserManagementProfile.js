@@ -31,7 +31,11 @@ $(document).ready(function () {
     });
 
     $.validator.addMethod("isValidEmail", function (value, element) {
-        return IsEmail(value);
+        if (value.trim() == "") {
+            return true;
+        } else {
+            return IsEmail(value);
+        }
     }, "[[[Invalid email address.]]]");
 
     $.validator.addMethod("isRequired", function (value, element) {

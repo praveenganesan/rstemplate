@@ -3,6 +3,7 @@
 @{
     Layout = null;
     var application = ViewBag.Application;
+    var isReportServerApplication = application != null && application.ApplicationTypeId == ApplicationTypes.ReportServer;
     var clientData = new UpgradeData();
 }
 
@@ -23,7 +24,7 @@
         var replaceOverwritingDataUrl = "@Url.Action("ReplaceOverwritingData", "ServerConfiguration")";
         var updateResolvedUsersUrl = "@Url.Action("UpdateResolvedUsers", "ServerConfiguration")";
         var redirectionUrl = "@Url.Action("redirecttoclient", "ServerConfiguration")";
-
+        var isReportServerApplication = ("@isReportServerApplication").toLowerCase() == 'true';
         $(function () {
             // Declare a proxy to reference the hub.
             var statusTracker = $.connection.signalrHub;
@@ -68,39 +69,6 @@
                     </div>
                     <input type="hidden" id="copy-mail-settings" value="false" />
 
-                    <div class="col-xs-12 settings-div" id="adsettings-div">
-                        @Html.Label("adsettings", "[[[Active Directory]]]", new { @class = "app-textbox-label col-xs-9" })
-                        <div class="col-xs-3 adsettings switch-align">
-                            <span class="material-switch text-left">
-                                <input type="checkbox" id="adsettings" />
-                                <label for="adsettings" class="label-primary"></label>
-                            </span>
-                        </div>
-                    </div>
-                    <input type="hidden" id="copy-ad-settings" value="false" />
-
-                    <div class="col-xs-12 settings-div" id="azuresettings-div">
-                        @Html.Label("azuresettings", "[[[Azure Active Directory]]]", new { @class = "app-textbox-label col-xs-9" })
-                        <div class="col-xs-3 azuresettings switch-align">
-                            <span class="material-switch text-left">
-                                <input type="checkbox" id="azuresettings" />
-                                <label for="azuresettings" class="label-primary"></label>
-                            </span>
-                        </div>
-                    </div>
-                    <input type="hidden" id="copy-azure-settings" value="false" />
-
-                    <div class="col-xs-12 settings-div" id="dbsettings-div">
-                        @Html.Label("dbsettings", "[[[Import users from Database]]]", new { @class = "app-textbox-label col-xs-9" })
-                        <div class="col-xs-3 dbsettings switch-align">
-                            <span class="material-switch text-left">
-                                <input type="checkbox" id="dbsettings" />
-                                <label for="dbsettings" class="label-primary"></label>
-                            </span>
-                        </div>
-                    </div>
-                    <input type="hidden" id="copy-db-settings" value="false" />
-
                     <div class="col-xs-12 settings-div" id="ssosettings-div">
                         @Html.Label("ssosettings", "[[[SSO]]]", new { @class = "app-textbox-label col-xs-9" })
                         <div class="col-xs-3 ssosettings switch-align">
@@ -122,6 +90,80 @@
                         </div>
                     </div>
                     <input type="hidden" id="copy-time-settings" value="false" />
+
+                    @if (!isReportServerApplication)
+                    {
+                        <div class="col-xs-12 settings-div" id="adsettings-div">
+                            @Html.Label("adsettings", "[[[Active Directory]]]", new { @class = "app-textbox-label col-xs-9" })
+                            <div class="col-xs-3 adsettings switch-align">
+                                <span class="material-switch text-left">
+                                    <input type="checkbox" id="adsettings" />
+                                    <label for="adsettings" class="label-primary"></label>
+                                </span>
+                            </div>
+                        </div>
+                        <input type="hidden" id="copy-ad-settings" value="false" />
+
+                        <div class="col-xs-12 settings-div" id="azuresettings-div">
+                            @Html.Label("azuresettings", "[[[Azure Active Directory]]]", new { @class = "app-textbox-label col-xs-9" })
+                            <div class="col-xs-3 azuresettings switch-align">
+                                <span class="material-switch text-left">
+                                    <input type="checkbox" id="azuresettings" />
+                                    <label for="azuresettings" class="label-primary"></label>
+                                </span>
+                            </div>
+                        </div>
+                        <input type="hidden" id="copy-azure-settings" value="false" />
+
+                        <div class="col-xs-12 settings-div" id="dbsettings-div">
+                            @Html.Label("dbsettings", "[[[Import users from Database]]]", new { @class = "app-textbox-label col-xs-9" })
+                            <div class="col-xs-3 dbsettings switch-align">
+                                <span class="material-switch text-left">
+                                    <input type="checkbox" id="dbsettings" />
+                                    <label for="dbsettings" class="label-primary"></label>
+                                </span>
+                            </div>
+                        </div>
+                        <input type="hidden" id="copy-db-settings" value="false" />
+                    }
+                    else
+                    {
+                        <div class="col-xs-12 settings-div" id="adsettings-div">
+                            @Html.Label("adsettings", "[[[Active Directory]]]", new { @class = "app-textbox-label col-xs-7" })
+                            <div class="col-xs-5 adsettings switch-align">
+                                <select class="selectpicker" id="ad-settings-options" data-width="115px">
+                                    <option class="no-margin-dropdown-ul" value="Ignore">[[[Use UMS]]]</option>
+                                    <option class="no-margin-dropdown-ul" value="Overwrite">[[[Use client]]]</option>
+                                    <option class="no-margin-dropdown-ul" value="KeepBoth">[[[Keep both]]]</option>
+                                </select>
+                            </div>
+                        </div>
+                        <input type="hidden" id="copy-ad-settings" value="false" />
+
+                        <div class="col-xs-12 settings-div" id="azuresettings-div">
+                            @Html.Label("azuresettings", "[[[Azure Active Directory]]]", new { @class = "app-textbox-label col-xs-7" })
+                            <div class="col-xs-5 azuresettings switch-align">
+                                <select class="selectpicker" id="azure-settings-options" data-width="115px">
+                                    <option class="no-margin-dropdown-ul" value="Ignore">[[[Use UMS]]]</option>
+                                    <option class="no-margin-dropdown-ul" value="Overwrite">[[[Use client]]]</option>
+                                    <option class="no-margin-dropdown-ul" value="KeepBoth">[[[Keep both]]]</option>
+                                </select>
+                            </div>
+                        </div>
+                        <input type="hidden" id="copy-azure-settings" value="false" />
+
+                        <div class="col-xs-12 settings-div" id="dbsettings-div">
+                            @Html.Label("dbsettings", "[[[Import users from Database]]]", new { @class = "app-textbox-label col-xs-7" })
+                            <div class="col-xs-5 dbsettings switch-align">
+                                <select class="selectpicker" id="db-settings-options" data-width="115px">
+                                    <option class="no-margin-dropdown-ul" value="Ignore">[[[Use UMS]]]</option>
+                                    <option class="no-margin-dropdown-ul" value="Overwrite">[[[Use client]]]</option>
+                                    <option class="no-margin-dropdown-ul" value="KeepBoth">[[[Keep both]]]</option>
+                                </select>
+                            </div>
+                        </div>
+                        <input type="hidden" id="copy-db-settings" value="false" />
+                    }
                 </div>
                 <div class="resolve-duplicates-page-container" id="resolve-duplicates-container">
                     <div id="duplicate-user-count-container">[[[Detected (<span id="duplicate-user-count"></span>) User duplicate(s) during data migration.]]]</div>

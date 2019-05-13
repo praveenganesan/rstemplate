@@ -134,14 +134,23 @@ function renderSettingsPage(clientData) {
 $(document).on("click", ".settings-submit", function () {
     $(".startup-page-conatiner").ejWaitingPopup("show");
     $("#overwrite-settings-container").css("display", "none");
+    var isAdconflictExists = isReportServerApplication && clientData.IsClientAdSettingsExists && clientData.IsUmsAdSettingsExists;
+    var isAzureAdConflictExists = isReportServerApplication && clientData.IsClientAzureAdSettingsExists && clientData.IsUmsAzureAdSettingsExists;
+    var isDbConflictExists = isReportServerApplication && clientData.IsClientDbSettingsExists && clientData.IsUmsDbSettingsExists;
+    var adSettingsSelectedValue = $("#ad-settings-options").val();
+    var azureAdSettingsSelectedValue = $("#azure-settings-options").val();
+    var dbSettingsSelectedValue = $("#db-settings-options").val();
     var data =
         {
             "overwritingData.CopyMailSettings": $('#copy-mail-settings').val().toLowerCase() === "true",
-            "overwritingData.CopyAdSettings": $('#copy-ad-settings').val().toLowerCase() === "true",
-            "overwritingData.CopyAzureAdSettings": $('#copy-azure-settings').val().toLowerCase() === "true",
-            "overwritingData.CopyDbSettings": $('#copy-db-settings').val().toLowerCase() === "true",
+            "overwritingData.KeepBothAdSettings": isAdconflictExists ? adSettingsSelectedValue === "KeepBoth" ? true : false : false,
+            "overwritingData.CopyAdSettings": isAdconflictExists ? (adSettingsSelectedValue !== "KeepBoth" ? adSettingsSelectedValue === "Overwrite" ? true : false : false) : $('#copy-ad-settings').val().toLowerCase() === "true",
+            "overwritingData.KeepBothAzureAdSettings": isAzureAdConflictExists ? azureAdSettingsSelectedValue === "KeepBoth" ? true : false : false,
+            "overwritingData.CopyAzureAdSettings": isAzureAdConflictExists ? (azureAdSettingsSelectedValue !== "KeepBoth" ? azureAdSettingsSelectedValue === "Overwrite" ? true : false : false) : $('#copy-azure-settings').val().toLowerCase() === "true",
             "overwritingData.CopySamlSettings": $('#copy-sso-settings').val().toLowerCase() === "true",
             "overwritingData.CopyTimeSettings": $('#copy-time-settings').val().toLowerCase() === "true",
+            "overwritingData.KeepBothDbSettings": isDbConflictExists ? dbSettingsSelectedValue === "KeepBoth" ? true : false : false,
+            "overwritingData.CopyDbSettings": isDbConflictExists ? (dbSettingsSelectedValue !== "KeepBoth" ? dbSettingsSelectedValue === "Overwrite" ? true : false : false) : $('#copy-db-settings').val().toLowerCase() === "true",
         };
 
     $.ajax({
