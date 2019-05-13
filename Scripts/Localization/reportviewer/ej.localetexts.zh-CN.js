@@ -18,10 +18,10 @@ ej.ReportViewer.Locale["zh-CN"] = {
             headerText: "出口",
             contentText: "选择导出的文件格式。",
             Pdf: "PDF",
-            Excel: "Excel",
-            Word: "word",
+            Excel: "高强",
+            Word: "字",
             Html: "HTML",
-            PPT: 'PowerPoint',
+            PPT: 'PPT',
             CSV: 'CSV'
         },
         first: {
@@ -124,8 +124,8 @@ ej.ReportViewer.Locale["zh-CN"] = {
     progressMessage: {
         exportLoadingMessage: '准备出口文件......请稍候......',
         printLoadingMessage: '准备打印数据......请稍候......',
-        printPreparationMessage: '准备打印数据... {0}% 已完成...请稍候...',
-        exportPreparationMessage: '准备导出文档... {0}％ 已完成...请稍候...',
+        printPreparationMessage: '准备打印数据... {0}已完成...请稍候...',
+        exportPreparationMessage: '准备导出文档... {0}％已完成...请稍候...',
     },
     alertMessage: {
         close: '关',
@@ -149,6 +149,5 @@ ej.ReportViewer.Locale["zh-CN"] = {
     },
     selectAll: '全选',
     viewButton: "查看报告",
-    parameterProcessingMessage: '加载相关参数......'
+    parameterProcessingMessage: '加载相关参数......',
 };
-               

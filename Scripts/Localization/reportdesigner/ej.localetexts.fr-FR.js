@@ -336,6 +336,10 @@ ej.ReportDesigner.Locale['fr-FR'] = {
         gridLine: 'le quadrillage',
         header: 'entête',
         footer: 'bas de page',
+        sendBackward: 'Envoyer vers l\'arrière',
+        bringForward: 'Avancer',
+        sendToBack: 'Envoyer au fond',
+        bringToFront: 'Mettre au premier plan',
         preview: 'Aperçu',
         reportUpload: {
             alertLabel: 'Télécharger',
@@ -861,6 +865,7 @@ ej.ReportDesigner.Locale['fr-FR'] = {
         setSorts: 'Définir les triages',
         setFilters: 'Définir les filtres',
         advancedOptions: 'Options avancées',
+        codemodules: 'Code',
         expressionList: {
             top: 'Haut',
             right: 'Droite',
@@ -900,7 +905,8 @@ ej.ReportDesigner.Locale['fr-FR'] = {
             contextMenu: {
                 editItem: 'modifier',
                 deleteItem: 'Effacer',
-                createDataSet: 'Créer un DataSet'
+                createDataSet: 'Créer un DataSet',
+                cloneDatasource: 'Cloner'
             }
         },
         datasourceType: {
@@ -1026,6 +1032,10 @@ ej.ReportDesigner.Locale['fr-FR'] = {
             deleteValue: 'Supprimer la source de données \'',
             alertConnectionFailed: 'Le concepteur de rapports n\'a pas réussi à connecter la source de données',
             dataExtensionFailed: 'Le fournisseur de données sélectionné n\'est pas disponible. Veuillez vérifier l\'extension de données.',
+            connectStringValidation: 'Comme la chaîne de connexion contient des expressions dans la source de données ',
+            validationMessage: ' Veuillez mettre à jour avec une chaîne de connexion valide.',
+            executionMessage: ', nous ne pouvons pas exécuter le jeu de données pour cette connexion.',
+            confirmMessage: ' Voulez-vous vraiment enregistrer la source de données?',
             nameWarning: 'Spécifiez le nom DataSource',
             nameAlert: 'Le nom spécifié existe déjà dans la liste DataSource',
             nameValidation: 'Le nom ne doit pas contenir d\'espaces et de caractères spéciaux'
@@ -1112,10 +1122,6 @@ ej.ReportDesigner.Locale['fr-FR'] = {
     dataSet: {
         headerText: 'LES DONNÉES',
         newData: 'AJOUTER LE DATASET',
-        splitButtonMenu: {
-            sharedDataset: 'partagé',
-            createNewDataset: 'Créer un nouveau'
-        },
         shareDataset: {
             headerText: 'NOUVEAU DATASET',
             save: 'sauvegarder',
@@ -1131,11 +1137,14 @@ ej.ReportDesigner.Locale['fr-FR'] = {
         },
         contextMenu: {
             edit: 'modifier',
-            remove: 'Effacer'
+            remove: 'Effacer',
+            cloneDataset: 'Cloner'
         },
         datasourceSwitcher: 'Les sources de données',
         deleteDataset: 'Supprimer le jeu de données',
-        deleteField: 'Supprimer le champ'
+        deleteField: 'Supprimer le champ',
+        newDataText: 'Nouvelles données',
+        sharedDataText: 'Données partagées'
     },
     reportViewer: {
         toolbar: {
@@ -1353,6 +1362,7 @@ ej.ReportDesigner.Locale['fr-FR'] = {
                 syntaxLabelField: 'La valeur entrée dans le champ label n\'est pas une syntaxe de jeton valide. ',
                 syntaxValueField: 'La valeur entrée dans le champ de valeur n\'est pas une syntaxe de jeton valide. ',
                 blankValueCheck: 'Le champ de valeur est vide. Le paramètre n\'autorise pas les valeurs vides. ',
+                nullValueCheck: 'Dans le champ de valeur, une valeur nulle a été spécifiée. Le paramètre n\'autorise pas les valeurs nulles. '
             },
             closeToolTip: 'Fermer'
         }
@@ -1660,6 +1670,9 @@ ej.ReportDesigner.Locale['fr-FR'] = {
                 paddingRight: 'Droite',
                 paddingBottom: 'Bas'
             }
+        },
+        codeModule: {
+            code: 'Code',
         },
         position: {
             categoryPosition: 'Position',
@@ -2156,12 +2169,15 @@ ej.ReportDesigner.Locale['fr-FR'] = {
             cut: 'Couper',
             copy: 'Copie',
             paste: 'Coller',
-            expression: 'Expression'
+            expression: 'Expression',
+            pasteAlert: 'Votre navigateur ne prend pas en charge l\'accès direct au presse-papiers. Veuillez utiliser le raccourci clavier Ctrl + V au lieu de coller.'
         }
     },
     designPanel: {
         headerText: 'Entête',
-        footerText: 'Bas de page'
+        footerText: 'Bas de page',
+        pasteAlert: 'Seuls les éléments de base sont pris en charge dans les zones d\'en-tête et de pied de page.',
+        pasteTitle: 'Coller'
     },
     customProperty: {
         position: {
@@ -2389,10 +2405,7 @@ ej.ReportDesigner.Locale['fr-FR'] = {
         },
         reportItemMenu: {
             insertItem: 'Insérer',
-            line: 'Ligne',
-            textbox: 'Zone de texte',
-            image: 'Image',
-            subreport: 'Sous-rapport'
+            chart: 'Graphique'
         },
         totalMenu: {
             total: 'Add Total',
@@ -2408,6 +2421,12 @@ ej.ReportDesigner.Locale['fr-FR'] = {
             noFields: 'Pas de champs',
             addText: 'Ajouter du texte',
             editText: 'Éditer le texte'
+        },
+        basicItems: {
+            deleteItem: 'Effacer',
+            cut: 'Couper',
+            copy: 'Copie',
+            paste: 'Coller'
         }
     },
     tablixAlertDialog: {
@@ -2447,7 +2466,9 @@ ej.ReportDesigner.Locale['fr-FR'] = {
         title: 'Elément de rapport de tableau matriciel',
         parentGroupAlert: 'Échec de l\'ajout du groupe parent dans la structure hiérarchique',
         removeGroupAlert: 'Échec de la suppression du groupe dans la structure hiérarchique',
-        selectedMemberAlert: 'Le membre sélectionné n\'est pas un membre du groupe'
+        selectedMemberAlert: 'Le membre sélectionné n\'est pas un membre du groupe',
+        pasteActionAlert: 'Les informations ne peuvent pas être publiées car la zone de copie et la zone de collage n\'ont pas la même taille et la même forme.',
+        pasteTitle: 'Coller'
     },
     cellMergingAlertInfo: {
         merge: 'Fusionner des cellules',
@@ -2465,6 +2486,15 @@ ej.ReportDesigner.Locale['fr-FR'] = {
         ok: 'D\'accord',
         cancel: 'Annuler',
         closeToolTip: 'Fermer'
+    },
+    tablixDataAssignMenu: {
+        datasource: 'Ajouter une source de données',
+        addExpression: 'Ajouter une expression',
+        editExpression: 'Editer l\'expression',
+        addText: 'Ajouter du texte',
+        editText: 'Éditer le texte',
+        search: 'Chercher',
+        noFieldsFound: 'Aucun champ trouvé'
     },
     tablixTotalAlert: {
         totalHeader: 'Ajouter un en-tête total',
@@ -2498,6 +2528,9 @@ ej.ReportDesigner.Locale['fr-FR'] = {
             parameterLable: 'Paramètre',
             nullLable: 'Nul',
             valueLable: 'Valeur',
+            dataTypeLable: 'Type de données',
+            auto: 'Auto',
+            text: 'texte',
             closeToolTip: 'Fermer'
         },
         filter: {
@@ -2742,5 +2775,47 @@ ej.ReportDesigner.Locale['fr-FR'] = {
             expression: 'Expression',
             aggregate: 'Agrégat'
         }
+    },
+    codeDialog: {
+        title: 'Module de code',
+        ok: 'D\'accord',
+        cancel: 'Annuler',
+        add: 'Ajouter',
+        closeToolTip: 'Proche',
+        reference: {
+            title: 'Références',
+            waterMark: 'Référence ',
+            errorMessage: 'Le champ est vide',
+            headerText: 'Liste de références d\'assemblage',
+            infoTipText: 'Ajoutez une référence d\'assemblage pour utiliser vos fonctions d\'assemblage dans le rapport.'
+        },
+        classes: {
+            title: 'Classes',
+            classWaterMark: 'Nom de la classe',
+            instanceWaterMark: 'Nom de l\instance',
+            classErrorMessage: 'Les champs sont vides',
+            instanceErrorMessage: 'Le champ est vide',
+            headerText: 'Liste des instances de classe',
+            infoTipText: 'Ajoutez des instances de classe pour accéder à vos fonctions d\'objet dans le rapport.'
+        },
+        code: {
+            title: 'Code',
+            headerText: 'Fonction de code VB pour le rapport',
+            infoTipText: 'Le moteur de génération de rapports Syncfusion prend en charge les fonctions de code VB à intégrer aux éléments de rapport et aux données.'
+        }
+    },
+    sampleDataSource: {
+        sampleDSHeader: 'IMPORTATION DE DONNÉES D\'ÉCHANTILLON',
+        addText: 'Ajouter',
+        searchText: 'Chercher',
+        noDataFound: 'Aucune donnée disponible.',
+        welcomeContentPrefix: 'Commencez par créer une source de données',
+        welcomeContentSuffix: 'Vous pouvez vous connecter à vos propres données personnalisées ou en importer une à partir des données partagées prédéfinies que nous proposons.',
+        sampleDSText: 'importer des échantillons de données',
+        exploreSampleText: 'Explorez des exemples de données',
+        accordionText: 'Lancez votre premier rapport et explorez les options de personnalisation à l\'aide des exemples de données.',
+        errorMessage: 'Erreur réseau',
+        alertHeaderText: 'Importer des données',
+        alertMessage: 'Report Designer n\'a pas pu importer les données du serveur de rapports'
     }
 };

@@ -18,10 +18,10 @@ ej.ReportViewer.Locale["es-ES"] = {
             headerText: "Exportar",
             contentText: "Seleccione el formato de archivo exportado",
             Pdf: "PDF",
-            Excel: "Excel",
-            Word: "Word",
+            Excel: "Sobresalir",
+            Word: "Palabra",
             Html: "html",
-            PPT: "PowerPoint",
+            PPT: "PPT",
             CSV: 'CSV'
         },
         first: {
@@ -113,19 +113,19 @@ ej.ReportViewer.Locale["es-ES"] = {
         selectValue: "Seleccione un valor"
     },
     errorMessage: {
-        startMessage: "Report Viewer encontró algunos problemas al cargar este informe. Por favor",
-        middleMessage: " haga clic aquí",
-        endMessage: "para ver los detalles del error",
-        closeMessage: "Cerrar este mensaje",
+        startMessage: 'Report Viewer encontró algunos problemas al cargar este informe. Por favor',
+        middleMessage: 'Haga clic aquí',
+        endMessage: 'para ver los detalles del error',
+        closeMessage: 'Cerrar este mensaje',
         exportAjaxFailureMsg: 'No se puede exportar el documento debido a una falla en la conexión del servicio de informes.',
         printAjaxFailureMsg: 'No se puede imprimir el documento debido a una falla en la conexión del servicio de informes.',
-        reportLoadAjaxFailureMsg: 'No se puede avanzar la acción de Informe debido a una falla en la conexión del Servicio de Informe.',
+        reportLoadAjaxFailureMsg: 'No se puede avanzar la acción de Informe debido a una falla en la conexión del Servicio de Reportes'
     },
     progressMessage: {
         exportLoadingMessage: 'Preparando el documento de exportación ... Por favor espere ...',
         printLoadingMessage: 'Preparando datos de impresión ... Por favor espere ...',
-        printPreparationMessage: 'Preparando datos de impresión ... {0}% completado ... Por favor, espere ...',
-        exportPreparationMessage: 'Preparando el documento de exportación ... {0}% completado ... Por favor, espere ...',
+        printPreparationMessage: 'Preparando datos de impresión ... {0}% completado ... Por favor espere ...',
+        exportPreparationMessage: 'Preparando el documento de exportación ... {0}% completado ... Por favor espere ...'
     },
     alertMessage: {
         close: "Cerca",
@@ -151,4 +151,3 @@ ej.ReportViewer.Locale["es-ES"] = {
     viewButton: "Vista del informe",
     parameterProcessingMessage: 'Cargando parámetros dependientes ...'
 };
-                

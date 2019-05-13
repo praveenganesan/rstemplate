@@ -336,6 +336,10 @@ ej.ReportDesigner.Locale['en-US'] = {
         gridLine: 'Grid Lines',
         header: 'Header',
         footer: 'Footer',
+        sendBackward: 'Send Backward',
+        bringForward: 'Bring Forward',
+        sendToBack: 'Send To Back',
+        bringToFront: 'Bring To Front',
         preview: 'Preview',
         reportUpload: {
             alertLabel: 'Upload',
@@ -861,6 +865,7 @@ ej.ReportDesigner.Locale['en-US'] = {
         setSorts: 'Set Sorts',
         setFilters: 'Set Filters',
         advancedOptions: 'Advanced Options',
+        codemodules: 'Code',
         expressionList: {
             top: 'Top',
             right: 'Right',
@@ -869,7 +874,7 @@ ej.ReportDesigner.Locale['en-US'] = {
             style: 'Style',
             color: 'Color',
             size: 'Size',
-            fontFamily: 'FontFamily',
+            fontFamily: 'Font Family',
             width: 'Width',
             height: 'Height',
             weight: 'Weight',
@@ -900,7 +905,8 @@ ej.ReportDesigner.Locale['en-US'] = {
             contextMenu: {
                 editItem: 'Edit',
                 deleteItem: 'Delete',
-                createDataSet: 'Create DataSet'
+                createDataSet: 'Create DataSet',
+                cloneDatasource: 'Clone'
             }
         },
         datasourceType: {
@@ -1025,6 +1031,10 @@ ej.ReportDesigner.Locale['en-US'] = {
             alertLabel: 'DataSource',
             alertConnectionFailed: 'ReportDesigner failed to connect the datasource',
             dataExtensionFailed: 'The selected data provider is not available. Please check the data extension.',
+            connectStringValidation: 'As the connection string contains expressions in the data source ',
+            validationMessage: ' Please update with a valid connection string.',
+            executionMessage: ', we cannot execute the data set for this connection.',
+            confirmMessage: ' Are you sure want to save the data source?',
             deleteValue: 'Delete data source \'',
             nameWarning: 'Specify the DataSource name',
             nameAlert: 'The specified name already exists in the DataSource list',
@@ -1112,10 +1122,6 @@ ej.ReportDesigner.Locale['en-US'] = {
     dataSet: {
         headerText: 'DATA',
         newData: 'ADD DATASET',
-        splitButtonMenu: {
-            sharedDataset: 'Shared',
-            createNewDataset: 'Create New'
-        },
         shareDataset: {
             headerText: 'NEW DATASET',
             save: 'Save',
@@ -1131,11 +1137,14 @@ ej.ReportDesigner.Locale['en-US'] = {
         },
         contextMenu: {
             edit: 'Edit',
-            remove: 'Delete'
+            remove: 'Delete',
+            cloneDataset: 'Clone'
         },
         datasourceSwitcher: 'Datasources',
         deleteDataset: 'Delete dataset',
-        deleteField: 'Delete field'
+        deleteField: 'Delete field',
+        newDataText: 'New Data',
+        sharedDataText: 'Shared Data'
     },
     reportViewer: {
         toolbar: {
@@ -1353,6 +1362,7 @@ ej.ReportDesigner.Locale['en-US'] = {
                 syntaxLabelField: 'The entered value in the label field is not a valid token syntax.',
                 syntaxValueField: 'The entered value in the value field is not a valid token syntax.',
                 blankValueCheck: 'The value field is blank. The parameter does not allow blank values.',
+                nullValueCheck: 'In value field, a null value was specified. The parameter does not allow null values. '
             },
             closeToolTip: 'Close'
         }
@@ -1430,7 +1440,7 @@ ej.ReportDesigner.Locale['en-US'] = {
         dataLabel: 'Data',
         descritionLabel: 'Description',
         exampleLabelText: 'Example',
-        ok: 'Ok',
+        ok: 'OK',
         cancel: 'Cancel',
         closeToolTip: 'Close',
         textAreaWaterMark: 'Expression',
@@ -1669,6 +1679,9 @@ ej.ReportDesigner.Locale['en-US'] = {
             sizeLabel: 'Size',
             width: 'Width',
             height: 'Height'
+        },
+        codeModule: {
+            code: 'Code',
         },
         margin: {
             categoryName: 'Margin',
@@ -2156,12 +2169,15 @@ ej.ReportDesigner.Locale['en-US'] = {
             cut: 'Cut',
             copy: 'Copy',
             paste: 'Paste',
-            expression: 'Expression'
+            expression: 'Expression',
+            pasteAlert: 'Your browser doesn\'t support direct access to the clipboard. Please use the Ctrl+V keyboard shortcut instead of paste operation.'
         }
     },
     designPanel: {
         headerText: 'Header',
-        footerText: 'Footer'
+        footerText: 'Footer',
+        pasteAlert: 'Only basic item are supported in header and footer area',
+        pasteTitle: 'Paste'
     },
     customProperty: {
         position: {
@@ -2389,10 +2405,7 @@ ej.ReportDesigner.Locale['en-US'] = {
         },
         reportItemMenu: {
             insertItem: 'Insert',
-            line: 'Line',
-            textbox: 'TextBox',
-            image: 'Image',
-            subreport: 'SubReport'
+            chart: 'Chart'
         },
         totalMenu: {
             total: 'Add Total',
@@ -2408,6 +2421,12 @@ ej.ReportDesigner.Locale['en-US'] = {
             noFields: 'No Fields',
             addText: 'Add Text',
             editText: 'Edit Text'
+        },
+        basicItems: {
+            deleteItem: 'Delete',
+            cut: 'Cut',
+            copy: 'Copy',
+            paste: 'Paste'
         }
     },
     tablixAlertDialog: {
@@ -2453,7 +2472,9 @@ ej.ReportDesigner.Locale['en-US'] = {
         title: 'Tablix ReportItem',
         parentGroupAlert: 'Failed to add parent group in hierarchy structure',
         removeGroupAlert: 'Failed to remove group in hierarchy structure',
-        selectedMemberAlert: 'Selected member is not a group member'
+        selectedMemberAlert: 'Selected member is not a group member',
+        pasteActionAlert: 'The information cannot be posted because the copy area and the paste area are not the same size and shape.',
+        pasteTitle: 'Paste'
     },
     tablixGroup: {
         title: 'Tablix Group',
@@ -2465,6 +2486,15 @@ ej.ReportDesigner.Locale['en-US'] = {
         ok: 'OK',
         cancel: 'Cancel',
         closeToolTip: 'Close'
+    },
+    tablixDataAssignMenu: {
+        datasource: 'Add Data Source',
+        addExpression: 'Add Expression',
+        editExpression: 'Edit Expression',
+        addText: 'Add Text',
+        editText: 'Edit Text',
+        search: 'Search',
+        noFieldsFound: 'No Fields Found'
     },
     tablixTotalAlert: {
         totalHeader: 'Add Total Header',
@@ -2498,6 +2528,9 @@ ej.ReportDesigner.Locale['en-US'] = {
             parameterLable: 'Parameter',
             nullLable: 'Null',
             valueLable: 'Value',
+            dataTypeLable: 'DataType',
+            auto: 'Auto',
+            text: 'Text',
             closeToolTip: 'Close'
         },
         filter: {
@@ -2742,5 +2775,47 @@ ej.ReportDesigner.Locale['en-US'] = {
             expression: 'Expression',
             aggregate: 'Aggregate'
         }
+    },
+    codeDialog: {
+        title: 'Code Module',
+        ok: 'OK',
+        cancel: 'Cancel',
+        add: 'ADD',
+        closeToolTip: 'Close',
+        reference: {
+            title: 'References',
+            waterMark: 'Reference',
+            errorMessage: 'The field is empty',
+            headerText: 'List of assembly references',
+            infoTipText: 'Add an assembly reference to utilize your assembly functions in report.'
+        },
+        classes: {
+            title: 'Classes',
+            classWaterMark: 'Class Name',
+            instanceWaterMark: 'Instance Name',
+            classErrorMessage: 'The fields are empty',
+            instanceErrorMessage: 'The field is empty',
+            headerText: 'List of class instances',
+            infoTipText: 'Add class instances to access your object functions in report.'
+        },
+        code: {
+            title: 'Code',
+            headerText: 'VB code function for report',
+            infoTipText: 'Syncfusion reporting engine supports VB code functions to integrate with report element and data.'
+        }
+    },
+    sampleDataSource: {
+        sampleDSHeader: 'IMPORT SAMPLE DATA',
+        addText: 'Add',
+        searchText: 'Search',
+        noDataFound: 'No Data found.',
+        welcomeContentPrefix: 'Start by creating a data source',
+        welcomeContentSuffix: 'You can connect to your own custom data or can import one from the predefined shared data that we offer.',
+        sampleDSText: 'import sample data',
+        exploreSampleText: 'Explore Sample Data',
+        accordionText: 'Kickstart your first report and explore the customization options using the sample data.',
+        errorMessage: 'Network Error',
+        alertHeaderText: 'Import Data',
+        alertMessage: 'ReportDesigner failed to import the data from the ReportServer'
     }
 };

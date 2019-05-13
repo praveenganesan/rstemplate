@@ -52,7 +52,7 @@ var EJQRBarcode = (function () {
         });
         var errorRootDiv = this.errMsgDiv = ej.buildTag('div', '', {
             'display': 'none', 'position': 'relative', 'z-index': '3000',
-            'font-family': 'Segoe UI', 'font-size': '13px', 'height': '100%'
+            'font-family': 'Segoe UI', 'font-size': '13px', 'height': '100%', 'width': '100%'
         });
         var errorDiv = ej.buildTag('div', 'Failed to load barcode', {
             'display': 'table-cell', 'overflow': 'hidden', 'font-family': 'Segoe UI',
@@ -236,9 +236,9 @@ EJQRBarcode.Locale['en-US'] = {
 EJQRBarcode.Locale['fr-FR'] = {
     barcodeValue: 'Texte',
     textVisibility: 'Visibilite du texte',
-    categoryBasicSettings: 'Param�tres de base',
+    categoryBasicSettings: 'Paramètres de base',
     toolTip: {
-        requirements: 'Afficher n\'importe quel type de code � barres.',
+        requirements: 'Afficher n\'importe quel type de code à barres.',
         description: 'Affiche les codes barres.',
         title: 'QRBarcode'
     }

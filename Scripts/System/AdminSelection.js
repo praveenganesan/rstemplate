@@ -237,12 +237,6 @@ function setSystemAdmins() {
             success: function (result) {
                 hideWaitingPopup("add_admins_grid");
                 $("#provide-admin-access-button").attr("disabled", "disabled");
-                var gridObj = $("#add_admins_grid").data("ejGrid");
-                gridObj.clearSelection();
-                selectedAdmins = [];
-                gridObj.refreshContent();
-                var adminGridObj = $("#add_admins_grid").data("ejGrid");
-                adminGridObj.refreshContent();
                 onAddAdminsDialogClose();
                 if (result.status) {
                     window.location = loginPageUrl;

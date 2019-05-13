@@ -336,6 +336,10 @@ ej.ReportDesigner.Locale['de-DE'] = {
         gridLine: 'Gitterlinien',
         header: 'Header',
         footer: 'Fußzeile',
+        sendBackward: 'Rückwärts senden',
+        bringForward: 'Vorwärts bringen',
+        sendToBack: 'Nach hinten senden',
+        bringToFront: 'Nach vorne bringen',
         preview: 'Vorschau',
         reportUpload: {
             alertLabel: 'Hochladen',
@@ -861,6 +865,7 @@ ej.ReportDesigner.Locale['de-DE'] = {
         setSorts: 'Sortierung',
         setFilters: 'Filter setzen',
         advancedOptions: 'Erweiterte Optionen',
+        codemodules: 'Code',
         expressionList: {
             top: 'Oben',
             right: 'Recht',
@@ -900,7 +905,8 @@ ej.ReportDesigner.Locale['de-DE'] = {
             contextMenu: {
                 editItem: 'Bearbeiten',
                 deleteItem: 'Löschen',
-                createDataSet: 'Datensatz erstellen'
+                createDataSet: 'Datensatz erstellen',
+                cloneDatasource: 'Klon'
             }
         },
         datasourceType: {
@@ -1025,6 +1031,10 @@ ej.ReportDesigner.Locale['de-DE'] = {
             alertLabel: 'Datenquelle',
             alertConnectionFailed: 'ReportDesigner konnte die Datenquelle nicht verbinden',
             dataExtensionFailed: 'Der ausgewählte Datenanbieter ist nicht verfügbar. Bitte überprüfen Sie die Datenerweiterung.',
+            connectStringValidation: 'Da die Verbindungszeichenfolge Ausdrücke in der Datenquelle enthält ',
+            validationMessage: ' Bitte aktualisieren Sie mit einer gültigen Verbindungszeichenfolge.',
+            executionMessage: ', Wir können den Datensatz für diese Verbindung nicht ausführen.',
+            confirmMessage: ' Möchten Sie die Datenquelle wirklich speichern?',
             deleteValue: 'Löschen Sie die Datenquelle \'',
             nameWarning: 'Geben Sie den DataSource-Namen an',
             nameAlert: 'Der angegebene Name existiert bereits in der DataSource-Liste',
@@ -1112,10 +1122,6 @@ ej.ReportDesigner.Locale['de-DE'] = {
     dataSet: {
         headerText: 'DATEN',
         newData: 'DATASET HINZUFÜGEN',
-        splitButtonMenu: {
-            sharedDataset: 'Geteilt',
-            createNewDataset: 'Erstelle neu'
-        },
         shareDataset: {
             headerText: 'NEUES DATASET',
             save: 'Sparen',
@@ -1131,11 +1137,14 @@ ej.ReportDesigner.Locale['de-DE'] = {
         },
         contextMenu: {
             edit: 'Bearbeiten',
-            remove: 'Löschen'
+            remove: 'Löschen',
+            cloneDataset: 'Klon'
         },
         datasourceSwitcher: 'DATENQUELLEN',
         deleteDataset: 'Datensatz löschen',
-        deleteField: 'Feld löschen'
+        deleteField: 'Feld löschen',
+        newDataText: 'Neue Daten',
+        sharedDataText: 'Freigegebene Daten'
     },
     reportViewer: {
         toolbar: {
@@ -1352,6 +1361,7 @@ ej.ReportDesigner.Locale['de-DE'] = {
                 syntaxLabelField: 'Der eingegebene Wert im Beschriftungsfeld ist keine gültige Tokensyntax.',
                 syntaxValueField: 'Der eingegebene Wert im Wertfeld ist keine gültige Tokensyntax.',
                 blankValueCheck: 'Das Wertfeld ist leer. Der Parameter lässt keine leeren Werte zu.',
+                nullValueCheck: 'Im Wertfeld wurde ein Nullwert angegeben. Der Parameter lässt keine Nullwerte zu.'
             },
             closeToolTip: 'Schließen'
         }
@@ -1429,7 +1439,7 @@ ej.ReportDesigner.Locale['de-DE'] = {
         dataLabel: 'DATEN',
         descritionLabel: 'Beschreibung',
         exampleLabelText: 'Beispiel',
-        ok: 'Ok',
+        ok: 'OK',
         cancel: 'Stornieren',
         closeToolTip: 'Schließen',
         textAreaWaterMark: 'Ausdruck',
@@ -1668,6 +1678,9 @@ ej.ReportDesigner.Locale['de-DE'] = {
             sizeLabel: 'Größe',
             width: 'Breite',
             height: 'Höhe'
+        },
+        codeModule: {
+            code: '码',
         },
         margin: {
             categoryName: 'Margin',
@@ -2155,12 +2168,15 @@ ej.ReportDesigner.Locale['de-DE'] = {
             cut: 'Schnitt',
             copy: 'Kopieren',
             paste: 'Einfügen',
-            expression: 'Ausdruck'
+            expression: 'Ausdruck',
+            pasteAlert: 'Ihr Browser unterstützt keinen direkten Zugriff auf die Zwischenablage. Verwenden Sie statt der Einfügeoperation die Tastenkombination Strg + V'
         }
     },
     designPanel: {
         headerText: 'Header',
-        footerText: 'Fußzeile'
+        footerText: 'Fußzeile',
+        pasteAlert: 'Im Kopf- und Fußbereich werden nur grundlegende Elemente unterstützt',
+        pasteTitle: 'Einfügen'
     },
     customProperty: {
         position: {
@@ -2388,10 +2404,7 @@ ej.ReportDesigner.Locale['de-DE'] = {
         },
         reportItemMenu: {
             insertItem: 'Einfügen',
-            line: 'Linie',
-            textbox: 'Textfeld',
-            image: 'Bild',
-            subreport: 'Unterbericht'
+            chart: 'Diagramm'
         },
         totalMenu: {
             total: 'Add Total',
@@ -2407,6 +2420,12 @@ ej.ReportDesigner.Locale['de-DE'] = {
             noFields: 'Keine Felder',
             addText: 'Text hinzufügen',
             editText: 'Text bearbeiten'
+        },
+        basicItems: {
+            deleteItem: 'Löschen',
+            cut: 'Schnitt',
+            copy: 'Kopieren',
+            paste: 'Einfügen'
         }
     },
     tablixAlertDialog: {
@@ -2452,7 +2471,9 @@ ej.ReportDesigner.Locale['de-DE'] = {
         title: 'Tablix-Berichtselement',
         parentGroupAlert: 'Fehler beim Hinzufügen der übergeordneten Gruppe in der Hierarchiestruktur',
         removeGroupAlert: 'Fehler beim Entfernen der Gruppe in der Hierarchiestruktur',
-        selectedMemberAlert: 'Das ausgewählte Mitglied ist kein Gruppenmitglied'
+        selectedMemberAlert: 'Das ausgewählte Mitglied ist kein Gruppenmitglied',
+        pasteActionAlert: 'Die Informationen können nicht hochgeladen werden, da der Kopierbereich und der Einfügebereich nicht die gleiche Größe und Form haben.',
+        pasteTitle: 'Einfügen'
     },
     tablixGroup: {
         title: 'Tablix-Gruppe',
@@ -2464,6 +2485,15 @@ ej.ReportDesigner.Locale['de-DE'] = {
         ok: 'OK',
         cancel: 'Stornieren',
         closeToolTip: 'Schließen'
+    },
+    tablixDataAssignMenu: {
+        datasource: 'Datenquelle hinzufügen',
+        addExpression: 'Ausdruck hinzufügen',
+        editExpression: 'Ausdruck bearbeiten',
+        addText: 'Text hinzufügen',
+        editText: 'Text bearbeiten',
+        search: 'Suche',
+        noFieldsFound: 'Keine Felder gefunden'
     },
     tablixTotalAlert: {
         totalHeader: 'Total Header hinzufügen',
@@ -2497,6 +2527,9 @@ ej.ReportDesigner.Locale['de-DE'] = {
             parameterLable: 'Parameter',
             nullLable: 'Null',
             valueLable: 'Wert',
+            dataTypeLable: 'DataType',
+            auto: 'Auto',
+            text: 'Text',
             closeToolTip: 'Schließen'
         },
         filter: {
@@ -2741,5 +2774,47 @@ ej.ReportDesigner.Locale['de-DE'] = {
             expression: 'Ausdruck',
             aggregate: 'Aggregat'
         }
+    },
+    codeDialog: {
+        title: 'Code-Modul',
+        ok: 'OK',
+        cancel: 'Stornieren',
+        add: 'HINZUFÜGEN',
+        closeToolTip: 'Schließen',
+        reference: {
+            title: 'Verweise',
+            waterMark: 'Referenz',
+            errorMessage: 'Das Feld ist leer',
+            headerText: 'Liste der Montagereferenzen',
+            infoTipText: 'Fügen Sie eine Assemblyreferenz hinzu, um Ihre Assemblyfunktionen im Bericht zu verwenden.'
+        },
+        classes: {
+            title: 'Klassen',
+            classWaterMark: 'Klassenname',
+            instanceWaterMark: 'Instanzname',
+            classErrorMessage: 'Die Felder sind leer',
+            instanceErrorMessage: 'Das Feld ist leer',
+            headerText: 'Liste der Klasseninstanzen',
+            infoTipText: 'Fügen Sie Klasseninstanzen hinzu, um auf Ihre Objektfunktionen im Bericht zuzugreifen.'
+        },
+        code: {
+            title: 'Code',
+            headerText: 'VB-Code-Funktion für den Bericht',
+            infoTipText: 'Die Syncfusion Reporting Engine unterstützt VB - Code - Funktionen zur Integration mit Berichtselementen und Daten.'
+        }
+    },
+    sampleDataSource: {
+        sampleDSHeader: 'BEISPIELDATEN IMPORTIEREN',
+        addText: 'Hinzufügen',
+        searchText: 'Suche',
+        noDataFound: 'Keine Daten gefunden.',
+        welcomeContentPrefix: 'Beginnen Sie mit dem Erstellen einer Datenquelle',
+        welcomeContentSuffix: 'Sie können eine Verbindung zu Ihren eigenen benutzerdefinierten Daten herstellen oder aus den vordefinierten freigegebenen Daten, die wir anbieten, importieren.',
+        sampleDSText: 'Beispieldaten importieren',
+        exploreSampleText: 'Beispieldaten untersuchen',
+        accordionText: 'Starten Sie den ersten Bericht und erkunden Sie die Anpassungsoptionen anhand der Beispieldaten.',
+        errorMessage: 'Netzwerkfehler',
+        alertHeaderText: 'Daten importieren',
+        alertMessage: 'Der Berichts-Designer konnte die Daten nicht vom Berichtsserver importieren'
     }
 };

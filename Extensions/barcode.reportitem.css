@@ -20,9 +20,9 @@
 }
 
 .e-rptdesigner-loaderDiv .e-rptdesigner-spinnerDiv {
-	box-sizing: content-box !important;
-	-moz-box-sizing: content-box !important; 
-	-webkit-box-sizing: content-box !important;
+    box-sizing: content-box !important;
+    -moz-box-sizing: content-box !important;
+    -webkit-box-sizing: content-box !important;
 }
 
 /* Safari */

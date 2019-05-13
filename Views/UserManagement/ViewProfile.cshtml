@@ -7,6 +7,7 @@
     var showInactive = (showDropdown == "hide" && showActive == "hide" && showActiveUser == "hide") ? "show" : "hide";
     var groupList = ViewBag.GroupList;
     ViewBag.Title = GlobalAppSettings.SystemSettings.OrganizationName + " - [[[User Profile]]]";
+    var umsUrl = GlobalAppSettings.SystemSettings.UmsUrl;
 }
 
 @section styles{
@@ -29,7 +30,7 @@
         var rootBaseUrl = "@Url.Content("~/")";
         if (rootBaseUrl.toLowerCase() == "/")
             rootBaseUrl = "";
-        var avatarUrl = "@Url.Action("Avatar", "UserManagement")";
+        var avatarUrl = "@umsUrl" + "/user/avatar";
         var deleteavatarUrl = "@Url.Action("deleteavatar", "User")";
         var getdefaultavatarUrl = "@Url.Action("getdefaultavatar", "User")";
         $(document).ready(function () {
@@ -96,7 +97,7 @@
                 </div>
                 <div class="user-profile-section col-lg-12 col-md-12 col-sm-12 col-xs-12 no-padding">
                     <div class="img-view-holder col-lg-12 col-md-12 col-sm-10 col-xs-12">
-                        <img id="user-profile-picture" src="@Url.Content("~/User/Avatar?Username=" + (@ViewBag.UserName)+ "&ImageSize=110")" />
+                        <img id="user-profile-picture" src="@umsUrl/User/Avatar?Username=@ViewBag.UserName&ImageSize=110" />
                         <span class="su su-edit-inverse profile-picture-edit-button" id="avatar-button-click" data-toggle="tooltip" data-placement="bottom" title="[[[Edit profile picture]]]"></span>
                         <span class="su su-delete profile-picture-edit-button" id="avatar-delete-click" data-toggle="tooltip" data-placement="bottom" title="[[[Delete profile picture]]]"></span>
                     </div>

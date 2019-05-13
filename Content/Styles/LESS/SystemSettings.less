@@ -265,6 +265,23 @@
                 .system-settings-db-selection-field {
                     text-align: center;
 
+                    #umpdb-checkbox {
+                        margin-top: 10px;
+                    }
+
+                    .material-checkbox {
+                        .material-checkbox-controls();
+                    }
+
+                    .material-checkbox:checked + input + label::before {
+                        bottom: 10px;
+                    }
+
+                    .disable-text-select {
+                        font-size: @app-large-text-size;
+                        left: -18px;
+                    }
+
                     .database-types {
                         margin-bottom: 15px;
                     }
@@ -879,8 +896,8 @@
                         }
                     }
                 }
-            }//admins selection container ends
-
+            }
+            //admins selection container ends
             //Include Sample Resource container styles
             #system-settings-admins-container {
                 #include-samples {
@@ -1229,6 +1246,39 @@ ul#password_policy_rules {
 @media screen and (max-width: 1400px) {
     .placeholder {
         margin-top: -23px !important;
+    }
+}
+
+@media screen and (max-width: 1400px) {
+    .system-startUp-settings-bg {
+        .startup-page-conatiner {
+            #system-settings-general {
+                #system-settings-ump-container {
+                    .dropdown-toggle {
+                        height: @btn-height-normal;
+                    }
+
+                    .ump-settings-fields-container {
+                        .ump-url-div {
+                            .selectpicker {
+                                top: -4px;
+                            }
+
+                            .bootstrap-select.btn-group {
+                                .dropdown-menu {
+                                    margin-top: -4px;
+                                }
+
+                                .btn .filter-option {
+                                    position: relative;
+                                    top: -2px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 }
 

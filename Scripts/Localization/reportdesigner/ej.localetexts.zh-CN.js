@@ -336,6 +336,10 @@ ej.ReportDesigner.Locale['zh-CN'] = {
         gridLine: '网格线',
         header: '头',
         footer: '页脚',
+        sendBackward: '向後發送',
+        bringForward: '向前進',
+        sendToBack: '發送回',
+        bringToFront: '帶到前面',
         preview: '预习',
         reportUpload: {
             alertLabel: '上传',
@@ -861,6 +865,7 @@ ej.ReportDesigner.Locale['zh-CN'] = {
         setSorts: '设置分类',
         setFilters: '设置过滤器',
         advancedOptions: '高级选项',
+        codemodules: '码',
         expressionList: {
             top: '最佳',
             right: '对',
@@ -900,7 +905,8 @@ ej.ReportDesigner.Locale['zh-CN'] = {
             contextMenu: {
                 editItem: '编辑',
                 deleteItem: '删除',
-                createDataSet: '创建数据集'
+                createDataSet: '创建数据集',
+                cloneDatasource: '克隆'
             }
         },
         datasourceType: {
@@ -1026,6 +1032,10 @@ ej.ReportDesigner.Locale['zh-CN'] = {
             deleteValue: '删除数据源 \'',
             alertConnectionFailed: '报表设计器 无法连接数据源',
             dataExtensionFailed: '所选数据提供程序不可用。 请检查数据扩展名。',
+            connectStringValidation: '由于连接字符串包含数据源中的表达式 ',
+            validationMessage: ' 请使用有效的连接字符串进行更新.',
+            executionMessage: ', 我们无法执行此连接的数据集.',
+            confirmMessage: ' 您确定要保存数据源吗？',
             nameWarning: '指定数据源名称',
             nameAlert: '指定的名称已存在于“数据源”列表中',
             nameValidation: '名称不应包含空格和特殊字符'
@@ -1112,10 +1122,6 @@ ej.ReportDesigner.Locale['zh-CN'] = {
     dataSet: {
         headerText: '数据',
         newData: '添加数据集',
-        splitButtonMenu: {
-            sharedDataset: '共享',
-            createNewDataset: '创建新的'
-        },
         shareDataset: {
             headerText: '新数据',
             save: '保存',
@@ -1131,11 +1137,14 @@ ej.ReportDesigner.Locale['zh-CN'] = {
         },
         contextMenu: {
             edit: '编辑',
-            remove: '删除'
+            remove: '删除',
+            cloneDataset: '克隆'
         },
         datasourceSwitcher: '数据源',
         deleteDataset: '删除数据集',
-        deleteField: '删除字段'
+        deleteField: '删除字段',
+        newDataText: '新數據',
+        sharedDataText: '共享數據'
     },
     reportViewer: {
         toolbar: {
@@ -1352,6 +1361,7 @@ ej.ReportDesigner.Locale['zh-CN'] = {
                 syntaxLabelField: '标签字段中输入的值不是有效的标记语法.',
                 syntaxValueField: '值字段中输入的值不是有效的标记语法.',
                 blankValueCheck: '值字段为空。该参数不允许空白值.',
+                nullValueCheck: '在值字段中，指定了空值。该参数不允许空值.',
             },
             closeToolTip: '关'
         }
@@ -1690,6 +1700,9 @@ ej.ReportDesigner.Locale['zh-CN'] = {
                 millimeters: '毫米',
                 picas: '異食癖'
             }
+        },
+        codeModule: {
+            code: '码',
         },
         paperSize: {
             orientation: '方向',
@@ -2155,12 +2168,15 @@ ej.ReportDesigner.Locale['zh-CN'] = {
             cut: '切',
             copy: '复制',
             paste: '糊',
-            expression: '表达'
+            expression: '表达',
+            pasteAlert: '您的瀏覽器不支持直接訪問剪貼板。請使用Ctrl + V鍵盤快捷鍵而不是粘貼操作。'
         }
     },
     designPanel: {
         headerText: '头',
-        footerText: '页脚'
+        footerText: '页脚',
+        pasteAlert: '页眉和页脚区域仅支持基本项目',
+        pasteTitle: '糊'
     },
     customProperty: {
         position: {
@@ -2388,10 +2404,7 @@ ej.ReportDesigner.Locale['zh-CN'] = {
         },
         reportItemMenu: {
             insertItem: '插入',
-            line: '线',
-            textbox: '文本框',
-            image: '图片',
-            subreport: '子报表'
+            chart: '圖表'
         },
         totalMenu: {
             total: 'Add Total',
@@ -2407,6 +2420,12 @@ ej.ReportDesigner.Locale['zh-CN'] = {
             noFields: '没有领域',
             addText: '添加文字',
             editText: '编辑文字'
+        },
+        basicItems: {
+            deleteItem: '删除',
+            cut: '切',
+            copy: '复制',
+            paste: '糊'
         }
     },
     tablixAlertDialog: {
@@ -2446,7 +2465,9 @@ ej.ReportDesigner.Locale['zh-CN'] = {
         title: 'Tablix报告项目',
         parentGroupAlert: '无法在层次结构中添加父组',
         removeGroupAlert: '无法删除层次结构中的组',
-        selectedMemberAlert: '选定的成员不是组成员'
+        selectedMemberAlert: '选定的成员不是组成员',
+        pasteActionAlert: '无法发布信息，因为复制区域和粘贴区域的大小和形状不同。',
+        pasteTitle: '糊'
     },
     cellMergingAlertInfo: {
         merge: '合并单元格',
@@ -2464,6 +2485,15 @@ ej.ReportDesigner.Locale['zh-CN'] = {
         ok: '好',
         cancel: '取消',
         closeToolTip: '關'
+    },
+    tablixDataAssignMenu: {
+        datasource: '添加数据源',
+        addExpression: '添加表达式',
+        editExpression: '编辑表达式',
+        addText: '添加文字',
+        editText: '编辑文字',
+        search: '搜索',
+        noFieldsFound: '找不到任何领域'
     },
     tablixTotalAlert: {
         totalHeader: '添加总标题',
@@ -2497,6 +2527,9 @@ ej.ReportDesigner.Locale['zh-CN'] = {
             parameterLable: '参数',
             nullLable: '空值',
             valueLable: '值',
+            dataTypeLable: '数据类型',
+            auto: '汽车',
+            text: '文本',
             closeToolTip: '关'
         },
         filter: {
@@ -2739,5 +2772,47 @@ ej.ReportDesigner.Locale['zh-CN'] = {
             expression: '表达',
             aggregate: '骨料'
         }
+    },
+    codeDialog: {
+        title: '代码模块',
+        ok: '好',
+        cancel: '取消',
+        add: '加',
+        closeToolTip: '关 ',
+        reference: {
+            title: '参考',
+            waterMark: '参考',
+            errorMessage: '该字段为空',
+            headerText: '裝配參考列表',
+            infoTipText: '添加裝配參考以在報告中使用裝配功能。'
+        },
+        classes: {
+            title: '类',
+            classWaterMark: '班级名称',
+            instanceWaterMark: '实例名称',
+            classErrorMessage: '该字段为空',
+            instanceErrorMessage: '该字段为空',
+            headerText: '類實例列表',
+            infoTipText: '添加類實例以訪問報表中的對象函數。'
+        },
+        code: {
+            title: '码',
+            headerText: '用於報告的VB代碼功能',
+            infoTipText: 'Syncfusion報告引擎支持VB代碼函數與報表元素和數據集成。'
+        }
+    },
+    sampleDataSource: {
+        sampleDSHeader: '進口樣品數據',
+        addText: '加',
+        searchText: '搜索',
+        noDataFound: '沒有找到數據。',
+        welcomeContentPrefix: '首先創建一個數據源',
+        welcomeContentSuffix: '您可以連接到自己的自定義數據，也可以從我們提供的預定義共享數據中導入一個。',
+        sampleDSText: '導入樣本數據',
+        exploreSampleText: '探索樣本數據',
+        accordionText: '啟動您的第一個報告並使用示例數據探索自定義選項。',
+        errorMessage: '網絡錯誤',
+        alertHeaderText: '導入數據',
+        alertMessage: '報表設計器無法從報表服務器導入數據'
     }
 };

@@ -18,10 +18,10 @@ ej.ReportViewer.Locale["de-DE"] = {
             headerText: "Exportieren",
             contentText: "Exportiertes Datei Format auswählen.",
             Pdf: "PDF",
-            Excel: "Excel",
+            Excel: "übertreffen",
             Word: "Wort",
             Html: "html",
-            PPT: "PowerPoint",
+            PPT: "PPT",
             CSV: 'CSV'
         },
         first: {
@@ -113,19 +113,19 @@ ej.ReportViewer.Locale["de-DE"] = {
         selectValue: 'Wähle einen Wert'
     },
     errorMessage: {
-        startMessage: 'Report Viewer hat Probleme beim Laden dieses Berichts festgestellt. Bitte',
-        middleMessage: ' Klick hier',
+        startMessage: 'Im Report Viewer sind beim Laden dieses Berichts Probleme aufgetreten. Bitte',
+        middleMessage: 'Hier klicken',
         endMessage: 'um die Fehlerdetails zu sehen',
         closeMessage: 'Schließen Sie diese Nachricht',
         exportAjaxFailureMsg: 'Das Dokument kann nicht exportiert werden, weil der Berichtsdienst nicht verbunden wurde.',
         printAjaxFailureMsg: 'Das Dokument kann nicht gedruckt werden, weil der Report Service nicht verbunden wurde.',
         reportLoadAjaxFailureMsg: 'Die Berichtsaktion kann nicht ausgeführt werden, weil der Berichtsdienst nicht verbunden werden konnte.',
-    },
+     },
     progressMessage: {
         exportLoadingMessage: 'Exportdokument wird vorbereitet ... Bitte warten Sie ...',
         printLoadingMessage: 'Druckdaten vorbereiten ... Bitte warten Sie ...',
         printPreparationMessage: 'Druckdaten werden vorbereitet ... {0}% abgeschlossen ... Bitte warten ...',
-        exportPreparationMessage: 'Exportdokument vorbereiten... {0}% abgeschlossen... Warten Sie mal...',
+        exportPreparationMessage: 'Export wird vorbereitet ... {0}% abgeschlossen ... Bitte warten ...',
     },
     alertMessage: {
         close: 'Schließen',
@@ -149,5 +149,5 @@ ej.ReportViewer.Locale["de-DE"] = {
     },
     selectAll: 'Wählen Sie Alle',
     viewButton: "Bericht sehen",
-    parameterProcessingMessage: 'Abhängige Parameter werden geladen ...'
+    parameterProcessingMessage: 'Abhängige Parameter werden geladen ...',"
 };

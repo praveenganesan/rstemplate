@@ -1100,7 +1100,7 @@
             Returns the first occurrence of a specified node from the SmartArt node collection.
             </summary>
             <param name="smartArtNode">The <see cref="T:Syncfusion.Presentation.ISmartArtNode"/> instance to locate in the collection.</param>
-            <returns>Returns the zero-based index of the first occurrence of SmartArt node within the collection, if found; otherwise, –1.</returns>
+            <returns>Returns the zero-based index of the first occurrence of SmartArt node within the collection, if found; otherwise, �1.</returns>
         </member>
         <member name="P:Syncfusion.Presentation.ISmartArtNodes.Count">
             <summary>
@@ -1985,6 +1985,11 @@
             Returns an <see cref="T:Syncfusion.Presentation.IHyperLink"/> instance that represents the hyperlink for the specified shape.
             </summary>
         </member>
+        <member name="P:Syncfusion.Presentation.Drawing.Shape.IsLineShape">
+            <summary>
+            Returns true if the shape have a transparant fill or light color line fill
+            </summary>
+        </member>
         <member name="P:Syncfusion.Presentation.Drawing.Shape.PlaceholderFormat">
             <summary>
             Returns a IPlaceholderFormat object that contains the properties that are unique to placeholders.
@@ -2103,7 +2108,7 @@
             Returns the first occurrence of a specified node from the SmartArt node collection.
             </summary>
             <param name="smartArtNode">The <see cref="T:Syncfusion.Presentation.ISmartArtNode"/> instance to locate in the collection.</param>
-            <returns>Returns the zero-based index of the first occurrence of SmartArt node within the collection, if found; otherwise, –1.</returns>
+            <returns>Returns the zero-based index of the first occurrence of SmartArt node within the collection, if found; otherwise, �1.</returns>
         </member>
         <member name="M:Syncfusion.Presentation.SmartArtImplementation.SmartArtNodes.Add">
             <summary>
@@ -6669,6 +6674,12 @@
             </code>
             </example>
         </member>
+        <member name="F:Syncfusion.Presentation.Charts.PresentationChart._isParsedChart">
+            <summary>
+            True if chart is parsed;
+            otherwise False.
+            </summary>
+        </member>
         <member name="F:Syncfusion.Presentation.Charts.PresentationChart._useExcelDataRange">
             <summary>
             Determines whether to use the excel data range for the chart.
@@ -7000,6 +7011,12 @@
         <member name="P:Syncfusion.Presentation.Charts.PresentationChart.ChartDataRangeSet">
             <summary>
             Determines whether Chart data range is set or not.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Presentation.Charts.PresentationChart.IsParsedChart">
+            <summary>
+            True if chart is parsed;
+            False otherwise.
             </summary>
         </member>
         <member name="T:Syncfusion.Presentation.IBackground">
@@ -19596,6 +19613,14 @@
             <param name="progId">The ProgID of the object to be embedded</param>
             <param name="oleData">File stream from which the object is to be created</param>
         </member>
+        <member name="M:Syncfusion.Presentation.IShapes.AddOleObject(System.IO.Stream,System.String,System.String)">
+            <summary>
+            Creates an <see cref="T:Syncfusion.Presentation.IOleObject"/> instance with the specified image, program id, and data, then adds it to the <see cref="T:Syncfusion.Presentation.IShapes"/> collection.
+            </summary>
+            <param name="image">Image used to be displayed</param>
+            <param name="progId">The ProgID of the object to be embedded</param>
+            <param name="pathLink">String path from which the object is to be created</param>
+        </member>
         <member name="M:Syncfusion.Presentation.IShapes.AddGroupShape(System.Double,System.Double,System.Double,System.Double)">
              <summary>
              Creates a group shape and adds the group shape to the shape collection.
@@ -19927,6 +19952,16 @@
             <param name="width">Width of the placeholder.</param>
             <param name="height">Height of the placeholder.</param>
             <returns>Returns the IPlaceholderFormat object.</returns>
+        </member>
+        <member name="M:Syncfusion.Presentation.Drawing.Shapes.AddOleObject(Syncfusion.Presentation.Drawing.OleObject,System.IO.Stream,System.String,System.IO.Stream,System.String)">
+            <summary>
+            Adds the OleObject to the current shape collection
+            </summary>
+            <param name="oleObject">Determines the OleObject</param>
+            <param name="pictureStream">Determines the pictureStream of the OleObject </param>
+            <param name="oleName">Determines the type of the OleObject .</param>
+            <param name="oleStream">Determines the stream of OleObject</param>
+            <param name="path">Determines the path of the OleObject</param>
         </member>
         <member name="T:Syncfusion.Presentation.ISolidFill">
             <summary>
@@ -30961,6 +30996,11 @@
              <param name="shapeType"></param>
              <returns></returns>
         </member>
+        <member name="T:FontSettings">
+            <summary>
+            Represents the font settings in the PowerPoint document. 
+            </summary>
+        </member>
         <member name="M:FontSettings.GetFont(System.String,System.Single,System.Drawing.FontStyle)">
             <summary>
             Gets the font based on given font details.
@@ -30990,11 +31030,7 @@
             Represents the method that handles substitute font event.
             </summary>
         </member>
-        <member name="T:SubstituteFontEventArgs">
-            <summary>
-            Represents the substitute font event that occurs during Presentation to PDF/Image conversion to substitute the alternate fonts when a specified font is not installed in the production environment.
-            </summary>
-        </member>
+        <!-- Badly formed XML comment ignored for member "T:SubstituteFontEventArgs" -->
         <member name="F:SubstituteFontEventArgs.m_originalFontName">
             <summary>
             Represents the original font name.
@@ -31921,7 +31957,7 @@
             Gets or sets whether the presentation has macros.
             </summary>
         </member>
-        <member name="M:Syncfusion.Presentation.Rendering.GDIRenderer.ApplyDuoTone(System.Drawing.Image,System.Collections.Generic.List{Syncfusion.Presentation.ColorObject})">
+        <member name="M:Syncfusion.Presentation.Rendering.RendererBase.ApplyDuoTone(System.Drawing.Image,System.Collections.Generic.List{Syncfusion.Presentation.ColorObject})">
             <summary>
             Apply duotone to the give image.
             </summary>
@@ -31929,7 +31965,7 @@
             <param name="duotone">duotone color informations.</param>
             <returns>Duotone applied image.</returns>
         </member>
-        <member name="M:Syncfusion.Presentation.Rendering.GDIRenderer.ApplyColorTransform(System.Collections.Generic.List{Syncfusion.Presentation.ColorTransForm},Syncfusion.Presentation.ColorObject)">
+        <member name="M:Syncfusion.Presentation.Rendering.RendererBase.ApplyColorTransform(System.Collections.Generic.List{Syncfusion.Presentation.ColorTransForm},Syncfusion.Presentation.ColorObject)">
             <summary>
             Apply color Transformation to the given color.
             </summary>
@@ -31937,7 +31973,7 @@
             <param name="inputColor">color in where the transformation occur.</param>
             <returns>Transformation applied color.</returns>
         </member>
-        <member name="M:Syncfusion.Presentation.Rendering.GDIRenderer.ExecuteLinearInterpolation(System.Drawing.Color,System.Drawing.Color,System.Drawing.Color,System.Single)">
+        <member name="M:Syncfusion.Presentation.Rendering.RendererBase.ExecuteLinearInterpolation(System.Drawing.Color,System.Drawing.Color,System.Drawing.Color,System.Single)">
             <summary>
             Executes Linear interpolation for Duotone.
             </summary>
@@ -31946,7 +31982,7 @@
             <param name="factor">Factor value.</param>
             <returns>Final factorized color.</returns>
         </member>
-        <member name="M:Syncfusion.Presentation.Rendering.GDIRenderer.DrawStringBasedOnCharacterSpacing(Syncfusion.Presentation.RichText.Paragraph,System.Drawing.Font,System.Drawing.Brush,System.Drawing.RectangleF,System.String,Syncfusion.Presentation.RichText.Font)">
+        <member name="M:Syncfusion.Presentation.Rendering.RendererBase.DrawStringBasedOnCharacterSpacing(Syncfusion.Presentation.RichText.Paragraph,System.Drawing.Font,System.Object,System.Drawing.RectangleF,System.String,Syncfusion.Presentation.RichText.Font)">
             <summary>
             Draws the string using character spacing by splitting the string into character.
             </summary>
@@ -33900,7 +33936,7 @@
         <member name="P:Syncfusion.Presentation.Fib.PnNext">
             <summary>
             Gets or sets an unsigned integer that specifies the offset in the WordDocument stream of the FIB for the document which contains all the AutoText items. 
-            If this value is 0, there are no AutoText items attached. Otherwise the FIB is found at file location pnNext×512. 
+            If this value is 0, there are no AutoText items attached. Otherwise the FIB is found at file location pnNext�512. 
             If fGlsy is 1 or fDot is 0, this value MUST be 0. 
             If pnNext is not 0, each FIB MUST share the same values for FibRgFcLcb97.fcPlcBteChpx, FibRgFcLcb97.lcbPlcBteChpx, FibRgFcLcb97.fcPlcBtePapx, FibRgFcLcb97.lcbPlcBtePapx, and FibRgLw97.cbMac.
             </summary>

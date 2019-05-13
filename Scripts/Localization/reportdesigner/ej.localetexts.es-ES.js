@@ -336,6 +336,10 @@ ej.ReportDesigner.Locale['es-ES'] = {
         gridLine: 'Líneas de cuadrícula',
         header: 'Encabezamiento',
         footer: 'Pie de página',
+        sendBackward: 'Enviar atrás',
+        bringForward: 'Adelantar',
+        sendToBack: 'Mandado hacia atras',
+        bringToFront: 'Traer al frente',
         preview: 'Avance',
         reportUpload: {
             alertLabel: 'Subir',
@@ -861,6 +865,7 @@ ej.ReportDesigner.Locale['es-ES'] = {
         setSorts: 'Establecer clases',
         setFilters: 'Establecer filtros',
         advancedOptions: 'Opciones avanzadas',
+        codemodules: 'Código',
         expressionList: {
             top: 'Parte superior',
             right: 'Derecha',
@@ -869,7 +874,7 @@ ej.ReportDesigner.Locale['es-ES'] = {
             style: 'Estilo',
             color: 'Color',
             size: 'Tamaño',
-            fontFamily: 'FontFamily',
+            fontFamily: 'Familia tipográfica',
             width: 'Anchura',
             height: 'Altura',
             weight: 'Peso',
@@ -900,7 +905,8 @@ ej.ReportDesigner.Locale['es-ES'] = {
             contextMenu: {
                 editItem: 'Editar',
                 deleteItem: 'Borrar',
-                createDataSet: 'Crear conjunto de datos'
+                createDataSet: 'Crear conjunto de datos',
+                cloneDatasource: 'Clon'
             }
         },
         datasourceType: {
@@ -1025,6 +1031,10 @@ ej.ReportDesigner.Locale['es-ES'] = {
             alertLabel: 'Fuente de datos',
             alertConnectionFailed: 'ReportDesigner failed to connect the datasource',
             dataExtensionFailed: 'El proveedor de datos seleccionado no está disponible. Por favor, compruebe la extensión de datos.',
+            connectStringValidation: 'Como la cadena de conexión contiene expresiones en la fuente de datos ',
+            validationMessage: ' Por favor, actualice con una cadena de conexión válida.',
+            executionMessage: ', No podemos ejecutar el conjunto de datos para esta conexión.',
+            confirmMessage: ' ¿Seguro que quieres guardar la fuente de datos?',
             deleteValue: 'Eliminar origen de datos \'',
             nameWarning: 'Especificar el nombre de DataSource',
             nameAlert: 'El nombre especificado ya existe en la lista de DataSource',
@@ -1112,10 +1122,6 @@ ej.ReportDesigner.Locale['es-ES'] = {
     dataSet: {
         headerText: 'DATOS',
         newData: 'AGREGAR DATOSET',
-        splitButtonMenu: {
-            sharedDataset: 'Compartido',
-            createNewDataset: 'Crear nuevo'
-        },
         shareDataset: {
             headerText: 'NUEVO DATASET',
             save: 'Salvar',
@@ -1131,11 +1137,14 @@ ej.ReportDesigner.Locale['es-ES'] = {
         },
         contextMenu: {
             edit: 'Editar',
-            remove: 'Borrar'
+            remove: 'Borrar',
+            cloneDataset: 'Clon'
         },
         datasourceSwitcher: 'Fuentes de datos',
         deleteDataset: 'Eliminar conjunto de datos',
-        deleteField: 'Eliminar campo'
+        deleteField: 'Eliminar campo',
+        newDataText: 'Nuevos datos',
+        sharedDataText: 'Datos compartidos'
     },
     reportViewer: {
         toolbar: {
@@ -1669,6 +1678,9 @@ ej.ReportDesigner.Locale['es-ES'] = {
             width: 'Anchura',
             height: 'Altura'
         },
+        codeModule: {
+            code: 'Código',
+        },
         margin: {
             categoryName: 'Margen',
             categoryHeader: 'Margen',
@@ -2155,12 +2167,15 @@ ej.ReportDesigner.Locale['es-ES'] = {
             cut: 'Cortar',
             copy: 'Dupdo',
             paste: 'Pegar',
-            expression: 'Expresión'
+            expression: 'Expresión',
+            pasteAlert: 'Su navegador no admite el acceso directo al portapapeles. Utilice el método abreviado de teclado Ctrl + V en lugar de la operación de pegado.'
         }
     },
     designPanel: {
         headerText: 'Encabezamiento',
-        footerText: 'Pie de página'
+        footerText: 'Pie de página',
+        pasteAlert: 'Solo se admiten elementos básicos en el área de encabezado y pie de página',
+        pasteTitle: 'Pegar'
     },
     customProperty: {
         position: {
@@ -2388,10 +2403,7 @@ ej.ReportDesigner.Locale['es-ES'] = {
         },
         reportItemMenu: {
             insertItem: 'Insertar',
-            line: 'Línea',
-            textbox: 'Caja de texto',
-            image: 'Imagen',
-            subreport: 'Subinforme'
+            chart: 'Gráfico'
         },
         totalMenu: {
             total: 'Add Total',
@@ -2407,6 +2419,12 @@ ej.ReportDesigner.Locale['es-ES'] = {
             noFields: 'No hay campos',
             addText: 'Añadir texto',
             editText: 'Editar texto'
+        },
+        basicItems: {
+            deleteItem: 'Borrar',
+            cut: 'Cortar',
+            copy: 'Dupdo',
+            paste: 'Pegar'
         }
     },
     tablixAlertDialog: {
@@ -2452,7 +2470,9 @@ ej.ReportDesigner.Locale['es-ES'] = {
         title: 'Elemento de informe de Tablix',
         parentGroupAlert: 'Error al agregar el grupo padre en la estructura de jerarquía',
         removeGroupAlert: 'Error al eliminar el grupo en la estructura de jerarquía',
-        selectedMemberAlert: 'El miembro seleccionado no es un miembro del grupo'
+        selectedMemberAlert: 'El miembro seleccionado no es un miembro del grupo',
+        pasteActionAlert: 'La información no se puede publicar porque el área de copia y el área de pegado no tienen el mismo tamaño y forma.',
+        pasteTitle: 'Pegar'
     },
     tablixGroup: {
         title: 'Grupo Tablix',
@@ -2464,6 +2484,15 @@ ej.ReportDesigner.Locale['es-ES'] = {
         ok: 'DE ACUERDO',
         cancel: 'Cancelar',
         closeToolTip: 'Cerca'
+    },
+    tablixDataAssignMenu: {
+        datasource: 'Añadir fuente de datos',
+        addExpression: 'Añadir expresión',
+        editExpression: 'Editar Expresión',
+        addText: 'Añadir texto',
+        editText: 'Editar texto',
+        search: 'Buscar',
+        noFieldsFound: 'No se encontraron campos'
     },
     tablixTotalAlert: {
         totalHeader: 'Añadir encabezado total',
@@ -2497,6 +2526,9 @@ ej.ReportDesigner.Locale['es-ES'] = {
             parameterLable: 'Parámetro',
             nullLable: 'Nulo',
             valueLable: 'Valor',
+            dataTypeLable: 'Tipo de datos',
+            auto: 'Auto',
+            text: 'texto',
             closeToolTip: 'Cerca'
         },
         filter: {
@@ -2741,5 +2773,47 @@ ej.ReportDesigner.Locale['es-ES'] = {
             expression: 'Expresión',
             aggregate: 'Agregar'
         }
+    },
+    codeDialog: {
+        title: 'Módulo de código',
+        ok: 'DE ACUERDO',
+        cancel: 'Cancelar',
+        add: 'AÑADIR',
+        closeToolTip: 'Cerrar',
+        reference: {
+            title: 'Referencias',
+            waterMark: 'Referencia',
+            errorMessage: 'El campo esta vacio',
+            headerText: 'Lista de referencias de montaje',
+            infoTipText: 'Agregue una referencia de ensamblaje para utilizar sus funciones de ensamblaje en el informe.'
+        },
+        classes: {
+            title: 'Las clases',
+            classWaterMark: 'Nombre de la clase',
+            instanceWaterMark: 'Nombre de instancia',
+            classErrorMessage: 'Los campos estan vacios',
+            instanceErrorMessage: 'El campo esta vacio',
+            headerText: 'Lista de instancias de clase',
+            infoTipText: 'Agregue instancias de clase para acceder a sus funciones de objeto en el informe.'
+        },
+        code: {
+            title: 'Código',
+            headerText: 'Función de código VB para informe',
+            infoTipText: 'El motor de informes Syncfusion admite funciones de código VB para integrarse con elementos y datos del informe.'
+        }
+    },
+    sampleDataSource: {
+        sampleDSHeader: 'DATOS DE MUESTRA DE IMPORTACIÓN',
+        addText: 'Añadir',
+        searchText: 'Buscar',
+        noDataFound: 'Datos no encontrados.',
+        welcomeContentPrefix: 'Comience creando una fuente de datos',
+        welcomeContentSuffix: 'Puede conectarse a sus propios datos personalizados o puede importar uno de los datos compartidos predefinidos que ofrecemos.',
+        sampleDSText: 'importar datos de muestra',
+        exploreSampleText: 'Explorar datos de muestra',
+        accordionText: 'Comience su primer informe y explore las opciones de personalización utilizando los datos de muestra.',
+        errorMessage: 'Error de red',
+        alertHeaderText: 'Datos de importacion',
+        alertMessage: 'Report Designer no pudo importar los datos del servidor de informes'
     }
 };

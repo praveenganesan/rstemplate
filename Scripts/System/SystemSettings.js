@@ -19,6 +19,75 @@ $(document).ready(function () {
     var accountName = $("#txt-accountname").val();
     var accessKey = $("#txt-accesskey").val();
 
+    $("#umpdatabase").on("click", function () {
+        if (isSafari) {
+            $(this).find("label").toggleClass("check");
+        }
+
+        if ($("#umpdatabase").prop("checked")) {
+            var serverType = $("#ump-server-type").val();
+            var dataSource = $("#ump-data-source").val();
+            var authType = $("#ump-auth-type").val();
+            var dsn = $("#ump-dsn").val();
+            var userId = $("#ump-user-id").val();
+            var password = $("#ump-pwd").val();
+            var portNo = $("#ump-port").val();
+            var database = $("#ump-database-name").val();
+            var databasePwd = $("#ump-database-pwd").val();
+
+            $("#database-type").val(serverType).change();
+            $("#database-type").attr("disabled", "disabled");
+            $(".selectpicker[data-id='database-type']").addClass("disabled-dropdown-color");
+            switch (serverType) {
+                case "MSSQL":
+                    $("#txt-servername").val(dataSource);
+                    $("#txt-servername").attr("disabled", "disabled");
+                    $("#txt-servername").siblings(".placeholder").css("display", "none");
+                    $(".selectpicker[data-id='check-windows']").addClass("disabled-dropdown-color");
+                    if (authType == "1") {
+                        $("#check-windows").val("sql").change();
+                        $("#txt-login").val(userId);
+                        $("#txt-password-db").val(password);
+                        $("#check-windows, #txt-login, #txt-password-db").attr("disabled", "disabled");
+                        $("#txt-login, #txt-password-db").siblings(".placeholder").css("display", "none");
+                    } else {
+                        $("#check-windows").val("windows").change();
+                        $("#check-windows").attr("disabled", "disabled");
+                    }
+                    break;
+                case "ORACLE":
+                    $("#oracle-dsn").val(dsn).change();
+                    $("#admin-username").val(userId);
+                    $("#admin-password").val(password);
+                    $("#oracle-dsn, #admin-username, #admin-password").attr("disabled", "disabled");
+                    $("#admin-username, #admin-password").siblings(".placeholder").css("display", "none");
+                    $(".selectpicker[data-id='oracle-dsn']").addClass("disabled-dropdown-color");
+                    break;
+                case "MYSQL":
+                    $("#mysql-odbc-dsn").val(dsn).change();
+                    $("#mysql-username").val(userId);
+                    $("#mysql-password").val(password);
+                    $("#mysql-odbc-dsn, #mysql-username, #mysql-password").attr("disabled", "disabled");
+                    $("#mysql-username, #mysql-password").siblings(".placeholder").css("display", "none");
+                    $(".selectpicker[data-id='mysql-odbc-dsn']").addClass("disabled-dropdown-color");
+                    break;
+                case "PostgreSQL":
+                    $("#postgresql-servername").val(dataSource);
+                    $("#postgresql-port").val(portNo);
+                    $("#postgresql-login").val(userId);
+                    $("#postgresql-password-db").val(password);
+                    $("#postgresql-servername, #postgresql-port, #postgresql-login, #postgresql-password-db").attr("disabled", "disabled");
+                    $("#postgresql-servername, #postgresql-port, #postgresql-login, #postgresql-password-db").siblings(".placeholder").css("display", "none");
+                    break;
+            }
+        } else {
+            $("#database-type, #txt-servername, #check-windows, #txt-login, #txt-password-db, #oracle-dsn, #admin-username, #admin-password, #mysql-odbc-dsn, #mysql-username, #mysql-password, #postgresql-servername, #postgresql-port, #postgresql-login, #postgresql-password-db").removeAttr("disabled");
+            $(".selectpicker[data-id='mysql-odbc-dsn'], .selectpicker[data-id='oracle-dsn']").removeClass("disabled");
+            $(".selectpicker").removeClass("disabled-dropdown-color");
+            $("#database-type").val("MSSQLCE").change();
+        }
+    });
+
     if (checkedVal == "http" || checkedVal == "https") {
         $(".custom-endpoint-form-element").hide();
         var finalValue = "DefaultEndpointsProtocol=" + checkedVal + ";AccountName=" + accountName + ";AccountKey=" + accessKey;
@@ -239,9 +308,9 @@ $(document).ready(function () {
                                     $("ul li[data-move-to='startup-page-two']").addClass("selected");
                                     $("#db_loader").hide();
                                     $("#system-settings-db-selection-container").hide();
+                                    window.connectionString = result.Data.value;
                                     StorageSettings();
                                     $("#txt-username").focus();
-                                    window.connectionString = result.Data.value;
                                     delete window.serverName;
                                     delete window.login;
                                     delete window.password;
@@ -310,9 +379,9 @@ $(document).ready(function () {
                                     $("ul li[data-move-to='startup-page-two']").addClass("selected");
                                     $("#db_loader").hide();
                                     $("#system-settings-db-selection-container").hide();
+                                    window.connectionString = result.Data.value;
                                     StorageSettings();
                                     $("#txt-username").focus();
-                                    window.connectionString = result.Data.value;
                                     delete window.serverName;
                                     delete window.port;
                                     delete window.login;
@@ -385,9 +454,9 @@ $(document).ready(function () {
                                     $("ul li[data-move-to='startup-page-two']").addClass("selected");
                                     $("#db_loader").hide();
                                     $("#system-settings-db-selection-container").hide();
+                                    window.connectionString = result.Data.value;
                                     StorageSettings();
                                     $("#txt-username").focus();
-                                    window.connectionString = result.Data.value;
                                     delete window.serverName;
                                     delete window.login;
                                     delete window.password;
@@ -461,9 +530,9 @@ $(document).ready(function () {
                                     $("ul li[data-move-to='startup-page-two']").addClass("selected");
                                     $("#db_loader").hide();
                                     $("#system-settings-db-selection-container").hide();
+                                    window.connectionString = result.Data.value;
                                     StorageSettings();
                                     $("#txt-username").focus();
-                                    window.connectionString = result.Data.value;
                                 }
                                 else {
                                     $("#oracle-config-submit").prop("disabled", false);
@@ -534,8 +603,8 @@ $(document).ready(function () {
                     $("ul li[data-move-to='startup-page-two']").addClass("selected");
                     $("#db_loader").hide();
                     $("#system-settings-db-selection-container").hide();
-                    StorageSettings();
                     window.connectionString = result.Data.value;
+                    StorageSettings();
                     changeFooterPostion();
                     delete window.serverName;
                     delete window.login;
@@ -1912,9 +1981,9 @@ $(document).on("click", "#sql-existing-db-submit", function () {
                                             $("ul li[data-move-to='startup-page-two']").addClass("selected");
                                             $("#db_loader").hide();
                                             $("#system-settings-db-selection-container").hide();
+                                            window.connectionString = result.Data.value;
                                             StorageSettings();
                                             $("#txt-username").focus();
-                                            window.connectionString = result.Data.value;
                                             delete window.serverName;
                                             delete window.login;
                                             delete window.password;
@@ -2027,9 +2096,9 @@ $(document).on("click", "#mysql-existing-db-submit", function () {
                                             $("ul li[data-move-to='startup-page-two']").addClass("selected");
                                             $("#db_loader").hide();
                                             $("#system-settings-db-selection-container").hide();
+                                            window.connectionString = result.Data.value;
                                             StorageSettings();
                                             $("#txt-username").focus();
-                                            window.connectionString = result.Data.value;
                                             delete window.serverName;
                                             delete window.login;
                                             delete window.password;
@@ -2143,9 +2212,9 @@ $(document).on("click", "#oracle-existing-db-submit", function () {
                                             $("ul li[data-move-to='startup-page-two']").addClass("selected");
                                             $("#db_loader").hide();
                                             $("#system-settings-db-selection-container").hide();
+                                            window.connectionString = result.Data.value;
                                             StorageSettings();
                                             $("#txt-username").focus();
-                                            window.connectionString = result.Data.value;
                                             delete window.serverName;
                                             delete window.login;
                                             delete window.password;
@@ -2252,9 +2321,9 @@ $(document).on("click", "#postgresql-existing-db-submit", function () {
                                             $("ul li[data-move-to='startup-page-two']").addClass("selected");
                                             $("#db_loader").hide();
                                             $("#system-settings-db-selection-container").hide();
+                                            window.connectionString = result.Data.value;
                                             StorageSettings();
                                             $("#txt-username").focus();
-                                            window.connectionString = result.Data.value;
                                             delete window.serverName;
                                             delete window.login;
                                             delete window.password;

@@ -21,7 +21,7 @@ ej.ReportViewer.Locale["en-US"] = {
             Excel: 'Excel',
             Word: 'Word',
             Html: 'Html',
-            PPT: 'PowerPoint',
+            PPT: 'PPT',
             CSV: 'CSV'
         },
         first: {
@@ -151,4 +151,3 @@ ej.ReportViewer.Locale["en-US"] = {
     viewButton: 'View Report',
     parameterProcessingMessage: 'Loading dependent parameters...'
 };
-                
